@@ -42,6 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gothambold"
                     android:text="DR. POMERIO CABRERA"
                     android:textAlignment="center"
                     android:textStyle="bold">
@@ -80,6 +81,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gothambold"
                     android:text="CLINICAS MOVILES"
                     android:textAlignment="center"
                     android:textStyle="bold">
@@ -117,6 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gothambold"
                     android:text="JORNADAS MÉDICAS"
                     android:textAlignment="center"
                     android:textStyle="bold">
@@ -154,6 +157,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/gothambold"
                     android:text="AMBULANCIAS"
                     android:textAlignment="center"
                     android:textStyle="bold">
@@ -191,6 +195,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gothambold"
                     android:text="TURNOS"
                     android:textAlignment="center"
                     android:textStyle="bold">
@@ -228,6 +233,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gothambold"
                     android:text="¿QUIÉNES SOMOS?"
                     android:textAlignment="center"
                     android:textStyle="bold">
