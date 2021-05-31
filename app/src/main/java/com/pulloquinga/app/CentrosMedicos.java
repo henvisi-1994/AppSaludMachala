@@ -14,4 +14,8 @@ public class CentrosMedicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_centros_medicos);
     }
+    public void item1(View view){
+        Intent detalle = new Intent(this, DetalleCentroMedico.class);
+        startActivity(detalle);
+    }
 }
