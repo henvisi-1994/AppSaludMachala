@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/logoredsaud" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txvnombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gothambold"
@@ -146,7 +146,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/lbltelefono"
+        android:id="@+id/txvtelefono"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/container"
@@ -156,10 +156,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/txvdireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lbltelefono"
+        android:layout_below="@+id/txvtelefono"
         android:fontFamily="@font/gothambold"
         android:text='Barrio "4 de Abril"'
         android:textAlignment="center"
@@ -169,7 +169,7 @@
         android:id="@+id/btnUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
+        android:layout_below="@+id/txvdireccion"
         android:layout_marginTop="24dp"
         android:background="#143E71"
         android:fontFamily="@font/gothambold"
