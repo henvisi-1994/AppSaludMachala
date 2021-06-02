@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/gothambold"
-                        android:text="TURNOS"
+                        android:text="AMBULANCIA"
                         android:textAlignment="center"
                         android:textColor="#227296"
                         android:textStyle="bold">
@@ -300,6 +300,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/gothammedium"
                 android:text="@string/cuenta"
                 android:textAlignment="center"
                 android:textColor="#22487E"
@@ -318,6 +319,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
                 android:layout_marginTop="@dimen/margen_menu"
                 android:orientation="horizontal">
 

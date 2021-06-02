@@ -1,3 +1,3 @@
 <resources>
-    <dimen name="margen_menu">30dp</dimen>
+    <dimen name="margen_menu">30sp</dimen>
 </resources>
