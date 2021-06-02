@@ -18,6 +18,8 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
         android:fontFamily="@font/gothambold"
         android:text="¿QUÍENES SOMOS?"
         android:textAlignment="center"
@@ -28,19 +30,26 @@
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="23sp"
         android:ems="10"
         android:fontFamily="@font/gothammedium"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="Una empresa pública municipal, que atravez de los servicios de salud brindamos por medio de los Centros Médicos Municipales y Clínicas Móviles, busca garantizar el cuidado integral en la salud de la ciudadanía a costos solidarios."
         android:textAlignment="center"
-        android:textColor="#227296" />
+        android:textColor="#227296"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Síguenos, infórmate y comparte:" />
+        android:layout_marginBottom="15sp"
+        android:fontFamily="@font/gothambold"
+        android:text="Síguenos, infórmate y comparte:"
+        android:textAlignment="center"
+        android:textColor="#227296"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,4 +81,68 @@
             app:srcCompat="@drawable/twitter" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gothammedium"
+        android:text="@string/cuenta"
+        android:textAlignment="center"
+        android:textColor="#22487E"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:fontFamily="@font/gothammedium"
+        android:text="www.redsaludmachala.gob.ec"
+        android:textAlignment="center"
+        android:textColor="#22487E"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gothambold"
+        android:text="CONTACTANOS"
+        android:textAlignment="center"
+        android:textColor="#22487E"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        android:textColor="#227296"
+        android:textSize="16sp"
+        tools:text="Telf. 072963775                                                                   Dir. Av 25 de Junio y Nueve de Mayo, 4 piso del GAD Municipal de Machala rsmmep@salñudmachala.gob.ec" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logomachalaalcaldia" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logodariomacas" />
+    </LinearLayout>
+
 </LinearLayout>
