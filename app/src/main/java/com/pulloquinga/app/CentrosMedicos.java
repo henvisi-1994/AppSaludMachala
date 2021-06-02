@@ -16,6 +16,7 @@ public class CentrosMedicos extends AppCompatActivity {
     }
     public void item1(View view){
         Intent detalle = new Intent(this, DetalleCentroMedico.class);
+        detalle.putExtra("id", 1);
         startActivity(detalle);
     }
 }

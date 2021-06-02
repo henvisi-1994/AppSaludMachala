@@ -51,10 +51,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
         startActivity(intent);
     }
-    public void yt(View view){
-        url="https://www.youtube.com/channel/UCbvCavsY2bYlQjlkdyP2SUw";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
-    }
 
 }

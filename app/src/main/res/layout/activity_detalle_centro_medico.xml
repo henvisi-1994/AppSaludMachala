@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/fondoapp"
+    android:background="@drawable/fondogeneral"
     android:layout_height="match_parent"
 
     tools:context=".DetalleCentroMedico">
@@ -25,8 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gothambold"
-            android:text="U.M.M. Dr. Pomerio Cabrera"
+            android:text="Centro Medico"
             android:textAlignment="center"
+            android:textColor="#22487E"
             android:textSize="24sp" />
 
         <TextView
@@ -37,111 +38,13 @@
             android:text="Especialidades"
             android:textAlignment="center"
             android:textAllCaps="false"
+            android:textColor="#22487E"
             android:textSize="20sp" />
-
-        <GridLayout
-            android:layout_width="352dp"
-            android:layout_height="232dp"
-            android:layout_margin="10dp"
-            android:columnCount="2"
-            android:rowCount="2"
-            android:textAlignment="center">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Obstetricia"
-                android:textSize="16sp" />
-
-            <TextView
-                android:fontFamily="@font/gothambold"
-                android:text="■ Medicina General"
-                android:textSize="16sp" />
-
-            <TextView
-                android:fontFamily="@font/gothambold"
-                android:text="■ Odontología"
-                android:textSize="16sp" />
-
-            <TextView
-                android:fontFamily="@font/gothambold"
-                android:text="■ Psicología"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Medico Cirujano"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Ginecología"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Hospitalización"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Partos"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Nebulizaciones"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Laboratorio"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Farmacia"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Enfermeria"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="178dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gothambold"
-                android:text="■ Medicina General(Medicos Residentes)"
-                android:textAlignment="textStart"
-                android:textSize="16sp" />
-        </GridLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerId"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -151,8 +54,9 @@
         android:layout_height="30dp"
         android:layout_below="@+id/container"
         android:fontFamily="@font/gothambold"
-        android:text="(07)2927200 / (07)2927201"
+        android:text="telefono"
         android:textAlignment="center"
+        android:textColor="#227296"
         android:textSize="16sp" />
 
     <TextView
@@ -161,8 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txvtelefono"
         android:fontFamily="@font/gothambold"
-        android:text='Barrio "4 de Abril"'
+        android:text="Direccion"
         android:textAlignment="center"
+        android:textColor="#227296"
         android:textSize="16sp" />
 
     <Button
