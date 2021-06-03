@@ -2,4 +2,16 @@
     <string name="app_name">App</string>
     <!-- Strings used for fragments for navigation -->
     <string name="cuenta">"@RedsaludMachala"</string>
+
+    <string name="descripcion_ambulancia">Ponemos a su dispocisión el <b>servicio de ambulancia </b>para
+traslados secundarios, <b>dentro y fuera de la ciudad</b> a bajos costos.</string>
+
+    <string name="descripcion_clinicas">Las clínicas móviles <b>recorren </b>los diferentes barrios de la ciudad
+        <b>brindando servicios de salud</b> por un periódo de 15 días, en cada sector.
+Adicional un equipo médico <b>realiza jornadas</b>en la <b>comunidad </b>durante
+uno a tres días de acuerdo a la necesidad.</string>
+
+    <string name="descripcion_cm2">Para solicitar uno de estos servicios, presentar un oficio en nuestras oficinas
+    principales</string>
+
 </resources>
