@@ -8,10 +8,14 @@ traslados secundarios, <b>dentro y fuera de la ciudad</b> a bajos costos.</strin
 
     <string name="descripcion_clinicas">Las clínicas móviles <b>recorren </b>los diferentes barrios de la ciudad
         <b>brindando servicios de salud</b> por un periódo de 15 días, en cada sector.
-Adicional un equipo médico <b>realiza jornadas</b>en la <b>comunidad </b>durante
+Adicional un equipo médico <b>realiza jornadas </b>en la <b>comunidad </b>durante
 uno a tres días de acuerdo a la necesidad.</string>
 
     <string name="descripcion_cm2">Para solicitar uno de estos servicios, presentar un oficio en nuestras oficinas
     principales</string>
+
+    <string name="descripcion_menu">"Nuestro compromiso es claro<b> brindar salud para los machaleños </b>con calidez y eficiencia"</string>
+    <string name="descripcion_contactanos">Dir. Av 25 de Junio y Nueve de Mayo, 4 piso del GAD Municipal de Machala rsmmep@salñudmachala.gob.ec</string>
+
 
 </resources>

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margen_menu">112sp</dimen>
+    <dimen name="margen_menu">750sp</dimen>
 </resources>

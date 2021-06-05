@@ -5,28 +5,30 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 public class QuinesSomos extends AppCompatActivity {
-    private String url;
+    EditText editTextQuienesSomos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quines_somos);
+        editTextQuienesSomos=(EditText) findViewById(R.id.editTextQuienesSomos);
+        Recursos.texto_no_editable(editTextQuienesSomos);
     }
     public void fb(View view){
-        url="https://www.facebook.com/RedSaludMachala";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://www.facebook.com/RedSaludMachala"));
     }
     public void tw(View view){
-        url="https://twitter.com/redsaludmachala";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://twitter.com/redsaludmachala"));
     }
     public void instagram(View view){
-        url="https://www.instagram.com/redsaludmachala/";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://www.instagram.com/redsaludmachala/"));
     }
+    public void inicio(View view){
+        Intent inicio = new Intent(this, MainActivity.class);
+        startActivity(inicio);
+    }
+
 }

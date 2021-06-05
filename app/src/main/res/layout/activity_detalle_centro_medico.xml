@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/fondogeneral"
     android:layout_height="match_parent"
-
+    android:background="@drawable/fondogeneral"
     tools:context=".DetalleCentroMedico">
 
     <LinearLayout
         android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="435dp"
-        android:orientation="vertical">
+        android:layout_width="340dp"
+        android:layout_height="401dp"
+        android:orientation="vertical"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,7 +32,7 @@
             android:fontFamily="@font/gothambold"
             android:text="Centro Medico"
             android:textAlignment="center"
-            android:textColor="#22487E"
+            android:textColor="@color/azultitulo"
             android:textSize="24sp" />
 
         <TextView
@@ -38,48 +43,108 @@
             android:text="Especialidades"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="#22487E"
+            android:textColor="@color/azultitulo"
             android:textSize="20sp" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerId"
-            android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/txvtelefono"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/container"
+        android:layout_width="408dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/gothambold"
         android:text="telefono"
         android:textAlignment="center"
-        android:textColor="#227296"
-        android:textSize="16sp" />
+        android:textColor="@color/azulparrafos"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txvdireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txvtelefono"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/gothambold"
         android:text="Direccion"
         android:textAlignment="center"
-        android:textColor="#227296"
-        android:textSize="16sp" />
+        android:textColor="@color/azulparrafos"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvtelefono"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnUbicacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txvdireccion"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:background="#143E71"
         android:fontFamily="@font/gothambold"
         android:onClick="ubicacion"
         android:text="VER UBICACIÓN"
-        android:textColor="#FFFFFF" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvdireccion"
+        tools:ignore="MissingConstraints" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="324dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUbicacion"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/gothambold"
+            android:onClick="inicio"
+            android:text="INICIO"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/gothambold"
+            android:text="NOTICIAS"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/gothambold"
+            android:text="CONTACTENOS"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

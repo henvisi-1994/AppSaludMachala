@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
-        <activity android:name=".DetalleCentroMedico"></activity>
+        <activity android:name=".Noticias"></activity>
+        <activity android:name=".DetalleCentroMedico" />
         <activity android:name=".QuinesSomos" />
         <activity android:name=".ClinicasMoviles" />
         <activity android:name=".Ambulancia" />

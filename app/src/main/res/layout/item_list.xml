@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/gothambold"
         android:text="TextView"
-        android:textColor="#227296"
+        android:textColor="@color/azulparrafos"
         android:textSize="16sp" />
 </LinearLayout>

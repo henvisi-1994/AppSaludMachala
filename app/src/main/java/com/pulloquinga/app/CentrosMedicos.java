@@ -45,4 +45,8 @@ public class CentrosMedicos extends AppCompatActivity {
         detalle.putExtra("id", 1);
         startActivity(detalle);
     }
+    public void inicio(View view){
+        Intent inicio = new Intent(this, MainActivity.class);
+        startActivity(inicio);
+    }
 }

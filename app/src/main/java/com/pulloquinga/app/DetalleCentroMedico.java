@@ -89,7 +89,11 @@ public class DetalleCentroMedico extends AppCompatActivity {
         return resultado;
     }
     public void ubicacion(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces(url));
+
+            }
+    public void inicio(View view){
+        Intent inicio = new Intent(this, MainActivity.class);
+        startActivity(inicio);
     }
 }

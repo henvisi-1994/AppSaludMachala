@@ -1,19 +1,69 @@
 package com.pulloquinga.app;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Drawable originalDrawable = getResources().getDrawable(R.drawable.ambulanciaicono);
+        Bitmap originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
+
+        //creamos el drawable redondeado
+        RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), originalBitmap);
+
+        //asignamos el CornerRadius
+        roundedDrawable.setCornerRadius(originalBitmap.getHeight());
+        ImageView imageView = (ImageView) findViewById(R.id.ambulancia);
+        imageView.setImageDrawable(roundedDrawable);
+
+        //Imagen Quienes Somos
+        Drawable originalDrawableqs = getResources().getDrawable(R.drawable.quienessomos);
+        Bitmap originalBitmapqs = ((BitmapDrawable) originalDrawableqs).getBitmap();
+
+        //creamos el drawable redondeado
+        RoundedBitmapDrawable roundedDrawableqs = RoundedBitmapDrawableFactory.create(getResources(), originalBitmapqs);
+
+        //asignamos el CornerRadius
+        roundedDrawableqs.setCornerRadius(originalBitmap.getHeight());
+        ImageView imageViewqs = (ImageView) findViewById(R.id.quines_somos);
+        imageViewqs.setImageDrawable(roundedDrawableqs);
+
+        //Imagen Centros Medicos
+        Drawable originalDrawablecm = getResources().getDrawable(R.drawable.cmmicono);
+        Bitmap originalBitmapcm = ((BitmapDrawable) originalDrawablecm).getBitmap();
+
+        //creamos el drawable redondeado
+        RoundedBitmapDrawable roundedDrawablecm = RoundedBitmapDrawableFactory.create(getResources(), originalBitmapcm);
+
+        //asignamos el CornerRadius
+        roundedDrawablecm.setCornerRadius(originalBitmap.getHeight());
+        ImageView imageViewcm = (ImageView) findViewById(R.id.centro_medico);
+        imageViewcm.setImageDrawable(roundedDrawablecm);
+
+        //Imagen Clinicas Moviles
+        Drawable originalDrawablecmo = getResources().getDrawable(R.drawable.cmicono);
+        Bitmap originalBitmapcmo = ((BitmapDrawable) originalDrawablecmo).getBitmap();
+
+        //creamos el drawable redondeado
+        RoundedBitmapDrawable roundedDrawablecmo = RoundedBitmapDrawableFactory.create(getResources(), originalBitmapcmo);
+
+        //asignamos el CornerRadius
+        roundedDrawablecmo.setCornerRadius(originalBitmap.getHeight());
+        ImageView imageViewcmo = (ImageView) findViewById(R.id.clinica_movil);
+        imageViewcmo.setImageDrawable(roundedDrawablecmo);
     }
     public void centrosmedicos(View view){
         Intent cetroMedico = new Intent(this, CentrosMedicos.class);
@@ -37,19 +87,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(quienes_somos);
     }
     public void fb(View view){
-        url="https://www.facebook.com/RedSaludMachala";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://www.facebook.com/RedSaludMachala"));
     }
     public void tw(View view){
-        url="https://twitter.com/redsaludmachala";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://twitter.com/redsaludmachala"));
     }
     public void instagram(View view){
-        url="https://www.instagram.com/redsaludmachala/";
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
-        startActivity(intent);
+        startActivity(Recursos.enlaces("https://www.instagram.com/redsaludmachala/"));
     }
+
 
 }
