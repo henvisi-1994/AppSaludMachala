@@ -325,6 +325,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="noticias"
             android:text="NOTICIAS"
             android:textColor="@android:color/white" />
 

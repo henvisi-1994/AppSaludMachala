@@ -96,4 +96,8 @@ public class DetalleCentroMedico extends AppCompatActivity {
         Intent inicio = new Intent(this, MainActivity.class);
         startActivity(inicio);
     }
+    public void noticias(View view){
+        Intent noticias = new Intent(this, Noticias.class);
+        startActivity(noticias);
+    }
 }

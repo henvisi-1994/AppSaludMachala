@@ -10,6 +10,9 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Recursos {
     static void texto_no_editable(EditText edit_text) {
         edit_text.setFocusable(false);
@@ -22,6 +25,9 @@ public class Recursos {
     public static Intent enlaces(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
         return intent;
+    }
+    public static <T> ArrayList<T> listToArrayList(List<T> list) {
+        return list != null ? new ArrayList<>(list) : null;
     }
 
 

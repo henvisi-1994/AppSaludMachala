@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
     public void instagram(View view){
         startActivity(Recursos.enlaces("https://www.instagram.com/redsaludmachala/"));
     }
+    public void noticias(View view){
+        Intent noticias = new Intent(this, Noticias.class);
+        startActivity(noticias);
+    }
 
 
 }

@@ -3,13 +3,17 @@ package com.pulloquinga.app;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pulloquinga.app.models.Noticia;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHolderDatos>{
     ArrayList<Noticia> listnoticias;
@@ -55,7 +59,9 @@ public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHo
             imagen= (ImageView) itemView.findViewById(R.id.imgvimagen_noticia);
         }
         public void asignarDatos(Noticia dato) {
-            titulo.setText(dato.getTitulo());
+            Log.d("Holaaaa",dato.toString());
+            titulo.setText(dato.getTitulo_noticia());
+
         }
     }
 }
