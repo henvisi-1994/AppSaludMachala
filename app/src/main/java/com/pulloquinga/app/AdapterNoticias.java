@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pulloquinga.app.models.Noticia;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +35,12 @@ public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHo
     @Override
     public void onBindViewHolder(AdapterNoticias.ViewHolderDatos holder, int posicion) {
         holder.asignarDatos(listnoticias.get(posicion));
-        Noticia clic=listnoticias.get(posicion);
+        Noticia noticia=listnoticias.get(posicion);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent detalle = new Intent(context, DetalleCentroMedico.class);
-                detalle.putExtra("id", clic.getId_noticia());
+                Intent detalle = new Intent(context, DetalleNoticia.class);
+                detalle.putExtra("noticia", noticia);
                 context.startActivity(detalle);
             }
         });
@@ -53,15 +54,22 @@ public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHo
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView titulo;
         ImageView imagen;
+        TextView txvfecha;
         public ViewHolderDatos(View itemView) {
             super(itemView);
             titulo=(TextView) itemView.findViewById(R.id.txmltitulo);
             imagen= (ImageView) itemView.findViewById(R.id.imgvimagen_noticia);
+            txvfecha=(TextView) itemView.findViewById(R.id.txvfecha);
         }
         public void asignarDatos(Noticia dato) {
-            Log.d("Holaaaa",dato.toString());
+            String cadenaFecha []=dato.getFecha_inicio_noticia().split(" ",10);
             titulo.setText(dato.getTitulo_noticia());
-
+            Picasso.get()
+                    .load(dato.getImagen_noticia())
+                    .resize(30, 30)
+                    .error(R.mipmap.ic_launcher_round)
+                    .into(imagen);
+            txvfecha.setText(cadenaFecha[0]);
         }
     }
 }

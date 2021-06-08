@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Config {
     public static final String BASEURL="http://192.168.1.108/apiredsaludmachala/public/api/";
+    //public static final String BASEURL="http://192.168.100.3/apiredsaludmachala/public/api/";
     public static Retrofit retrofit;
     public static Retrofit getRetrofit() {
         if (retrofit == null) {

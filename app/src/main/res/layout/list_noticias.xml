@@ -7,50 +7,53 @@
 
     <ImageView
         android:id="@+id/imgvimagen_noticia"
-        android:layout_width="92dp"
-        android:layout_height="89dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_agenda" />
-
-    <EditText
-        android:id="@+id/txmltitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:fontFamily="@font/gothammedium"
-        android:inputType="textMultiLine"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:text="Titulo de noticia"
-        android:textAlignment="center"
-        android:textColor="@color/azultitulo"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toEndOf="@+id/imgvimagen_noticia"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txvfecha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="140dp"
-        android:fontFamily="@font/gothammedium"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:text="fecha"
-        android:textColor="#227296"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgvimagen_noticia"
-        app:layout_constraintTop_toBottomOf="@+id/txmltitulo"
+        app:srcCompat="@android:drawable/ic_menu_agenda"
         tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="204dp"
+        android:layout_height="131dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="vertical"
+        android:paddingLeft="2sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgvimagen_noticia"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/txmltitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/gothammedium"
+            android:inputType="textMultiLine"
+            android:text="Titulo de noticia"
+            android:textAlignment="center"
+            android:textColor="@color/azultitulo"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txvfecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gothammedium"
+            android:text="fecha"
+            android:textAlignment="center"
+            android:textColor="#227296"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

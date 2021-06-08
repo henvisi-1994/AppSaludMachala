@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pulloquinga.app">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App">
-        <activity android:name=".Noticias"></activity>
+        android:theme="@style/Theme.App"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".DetalleNoticia"></activity>
+        <activity android:name=".Noticias" />
         <activity android:name=".DetalleCentroMedico" />
         <activity android:name=".QuinesSomos" />
         <activity android:name=".ClinicasMoviles" />

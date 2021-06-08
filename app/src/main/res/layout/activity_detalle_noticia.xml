@@ -5,45 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
-    tools:context=".Noticias">
+    tools:context=".DetalleNoticia">
+
+    <ImageView
+        android:id="@+id/imgdetallenoticia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/ambulanciaicono"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/gothambold"
         android:text="NOTICIAS"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_noticias"
+    <TextView
+        android:id="@+id/txtvtitulonoticia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gothambold"
+        android:text="TITULO"
+        android:textAlignment="center"
+        android:textColor="@color/azultitulo"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgdetallenoticia"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextdesarrollonoticia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:paddingLeft="25sp"
-        android:paddingRight="25sp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:maxLines="19"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="20sp"
+        android:scrollbars="vertical"
+        android:text="Descripcion Noticia"
+        android:textColor="@color/azulparrafos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtvtitulonoticia"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="324dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_noticias"
-        app:layout_constraintVertical_bias="0.963"
+        app:layout_constraintTop_toBottomOf="@+id/editTextdesarrollonoticia"
+        app:layout_constraintVertical_bias="0.99"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -76,8 +114,6 @@
             android:fontFamily="@font/gothambold"
             android:text="CONTACTENOS"
             android:textColor="@android:color/white" />
-
     </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

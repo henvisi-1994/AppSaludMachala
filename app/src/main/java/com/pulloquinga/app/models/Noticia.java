@@ -1,6 +1,8 @@
 package com.pulloquinga.app.models;
 
-public class Noticia {
+import java.io.Serializable;
+
+public class Noticia implements Serializable {
     private int id_noticia;
     private  String titulo_noticia;
     private  String imagen_noticia;

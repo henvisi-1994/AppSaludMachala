@@ -15,9 +15,9 @@ import java.util.List;
 
 public class Recursos {
     static void texto_no_editable(EditText edit_text) {
-        edit_text.setFocusable(false);
-        edit_text.setEnabled(false);
-        edit_text.setCursorVisible(false);
+        //edit_text.setFocusable(false);
+        //edit_text.setEnabled(false);
+        //edit_text.setCursorVisible(false);
         edit_text.setKeyListener(null);
 
     }
