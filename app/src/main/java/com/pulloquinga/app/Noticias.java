@@ -69,4 +69,9 @@ public class Noticias extends AppCompatActivity {
         Intent inicio = new Intent(this, MainActivity.class);
         startActivity(inicio);
     }
+    public void contacto(View view){
+        Intent contacto = new Intent(this, Contacto.class);
+        startActivity(contacto);
+        finish();
+    }
 }

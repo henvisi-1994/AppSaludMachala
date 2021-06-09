@@ -32,5 +32,11 @@ public class ClinicasMoviles extends AppCompatActivity {
     public void noticias(View view){
         Intent noticias = new Intent(this, Noticias.class);
         startActivity(noticias);
+        finish();
+    }
+    public void contacto(View view){
+        Intent contacto = new Intent(this, Contacto.class);
+        startActivity(contacto);
+        finish();
     }
 }

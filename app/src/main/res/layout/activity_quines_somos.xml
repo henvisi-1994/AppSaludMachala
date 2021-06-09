@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
+    android:onClick="contacto"
     android:orientation="vertical"
     tools:context=".QuinesSomos">
 
@@ -12,9 +13,9 @@
         android:id="@+id/imageView6"
         android:layout_width="292dp"
         android:layout_height="82dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoredsaud"
@@ -35,9 +36,9 @@
 
     <EditText
         android:id="@+id/editTextQuienesSomos"
-        android:layout_width="354dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:ems="10"
         android:fontFamily="@font/gothammedium"
@@ -56,25 +57,27 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="328dp"
-        android:layout_height="38dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothambold"
         android:text="Síguenos, infórmate y comparte:"
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextQuienesSomos"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="373dp"
-        android:layout_height="113dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:ignore="MissingConstraints">
@@ -109,12 +112,14 @@
         android:id="@+id/textView13"
         android:layout_width="348dp"
         android:layout_height="29dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
         android:text="@string/cuenta"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         tools:ignore="MissingConstraints" />
@@ -123,6 +128,7 @@
         android:id="@+id/textView12"
         android:layout_width="373dp"
         android:layout_height="27dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
         android:text="www.saludmachala.gob.ec"
         android:textAlignment="center"
@@ -137,6 +143,7 @@
         android:id="@+id/textView14"
         android:layout_width="281dp"
         android:layout_height="31dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/gothambold"
         android:text="CONTACTANOS"
         android:textAlignment="center"
@@ -151,12 +158,14 @@
         android:id="@+id/textView20"
         android:layout_width="258dp"
         android:layout_height="28dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/gothammedium"
         android:text="Telf. 072963775"
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:ignore="MissingConstraints" />
@@ -165,6 +174,7 @@
         android:id="@+id/textView21"
         android:layout_width="351dp"
         android:layout_height="49dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/gothammedium"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
@@ -173,6 +183,7 @@
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20"
         tools:ignore="MissingConstraints" />
@@ -181,31 +192,31 @@
         android:id="@+id/textView22"
         android:layout_width="363dp"
         android:layout_height="30dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/gothammedium"
         android:text="rsmmep@saludmachala.gob.ec"
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="222dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/logomachalaalcaldia" />
@@ -246,6 +257,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="noticias"
             android:text="NOTICIAS"
             android:textColor="@android:color/white" />
 
@@ -256,6 +268,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="contacto"
             android:text="CONTACTENOS"
             android:textColor="@android:color/white" />
     </LinearLayout>

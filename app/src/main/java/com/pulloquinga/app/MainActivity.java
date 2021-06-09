@@ -64,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
         roundedDrawablecmo.setCornerRadius(originalBitmap.getHeight());
         ImageView imageViewcmo = (ImageView) findViewById(R.id.clinica_movil);
         imageViewcmo.setImageDrawable(roundedDrawablecmo);
+
     }
     public void centrosmedicos(View view){
         Intent cetroMedico = new Intent(this, CentrosMedicos.class);
         startActivity(cetroMedico);
+
     }
     public void jornadasmedicas(View view){
         Intent jornadasmedicas = new Intent(this, JornadasMedicas.class);
@@ -76,11 +78,13 @@ public class MainActivity extends AppCompatActivity {
     public void ambulancia(View view){
         Intent ambulancia = new Intent(this, Ambulancia.class);
         startActivity(ambulancia);
+
     }
 
     public void clinicas_moviles(View view){
         Intent clinicas_moviles = new Intent(this, ClinicasMoviles.class);
         startActivity(clinicas_moviles);
+
     }
     public void quienes_somos(View view){
         Intent quienes_somos = new Intent(this, QuinesSomos.class);
@@ -98,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
     public void noticias(View view){
         Intent noticias = new Intent(this, Noticias.class);
         startActivity(noticias);
+
+    }
+    public void contacto(View view){
+        Intent contacto = new Intent(this, Contacto.class);
+        startActivity(contacto);
+
     }
 
 

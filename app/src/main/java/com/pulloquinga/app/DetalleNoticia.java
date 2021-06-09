@@ -44,6 +44,10 @@ public class DetalleNoticia extends AppCompatActivity {
         Intent noticias = new Intent(this, Noticias.class);
         startActivity(noticias);
     }
-
+    public void contacto(View view){
+        Intent contacto = new Intent(this, Contacto.class);
+        startActivity(contacto);
+        finish();
+    }
 
 }

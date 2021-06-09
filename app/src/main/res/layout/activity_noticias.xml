@@ -35,8 +35,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="324dp"
-        android:layout_height="46dp"
+        android:layout_width="322dp"
+        android:layout_height="32dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +74,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="contacto"
             android:text="CONTACTENOS"
             android:textColor="@android:color/white" />
 

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetalleNoticia"></activity>
+        <activity android:name=".Contacto"></activity>
+        <activity android:name=".DetalleNoticia" />
         <activity android:name=".Noticias" />
         <activity android:name=".DetalleCentroMedico" />
         <activity android:name=".QuinesSomos" />

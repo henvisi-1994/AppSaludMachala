@@ -1,6 +1,8 @@
-package com.pulloquinga.app;
+package com.pulloquinga.app.models;
 
-public class CentroMedico {
+import java.io.Serializable;
+
+public class CentroMedico implements Serializable {
     private int id;
     private String nombre;
     private String especialidades;

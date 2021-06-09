@@ -288,7 +288,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:fontFamily="@font/gothammedium"
-            android:text="www.redsaludmachala.gob.ec"
+            android:text="www.saludmachala.gob.ec"
             android:textAlignment="center"
             android:textColor="@color/azultitulo"
             android:textSize="20sp"
@@ -336,6 +336,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="contacto"
             android:text="CONTACTENOS"
             android:textColor="@android:color/white" />
     </LinearLayout>

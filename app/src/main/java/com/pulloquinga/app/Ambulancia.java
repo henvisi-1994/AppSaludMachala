@@ -15,13 +15,21 @@ public class Ambulancia extends AppCompatActivity {
         setContentView(R.layout.activity_ambulancia);
         editTextAmbulancia=(EditText) findViewById(R.id.editTextAmbulancia);
         Recursos.texto_no_editable(editTextAmbulancia);
+
     }
     public void inicio(View view){
         Intent inicio = new Intent(this, MainActivity.class);
         startActivity(inicio);
+
     }
     public void noticias(View view){
         Intent noticias = new Intent(this, Noticias.class);
         startActivity(noticias);
+        finish();
+    }
+    public void contacto(View view){
+        Intent contacto = new Intent(this, Contacto.class);
+        startActivity(contacto);
+        finish();
     }
 }

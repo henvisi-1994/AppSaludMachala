@@ -2,14 +2,13 @@ package com.pulloquinga.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.pulloquinga.app.models.CentroMedico;
 
 import java.util.ArrayList;
 
@@ -33,13 +32,13 @@ public class AdapterCentrosMedicos extends RecyclerView.Adapter<AdapterCentrosMe
     @Override
     public void onBindViewHolder(AdapterCentrosMedicos.ViewHolderDatos holder, int posicion) {
         holder.asignarDatos(listcentromedico.get(posicion));
-        CentroMedico clic=listcentromedico.get(posicion);
+        CentroMedico centromedico=listcentromedico.get(posicion);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Log.d("Mensajeeee",String.valueOf(clic.getId()));
                 Intent detalle = new Intent(context, DetalleCentroMedico.class);
-                detalle.putExtra("id", clic.getId());
+                detalle.putExtra("centromedico", centromedico);
                 context.startActivity(detalle);
             }
         });

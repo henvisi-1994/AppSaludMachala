@@ -1,21 +1,16 @@
 package com.pulloquinga.app;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
-public class QuinesSomos extends AppCompatActivity {
-    EditText editTextQuienesSomos;
+public class Contacto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quines_somos);
-        editTextQuienesSomos=(EditText) findViewById(R.id.editTextQuienesSomos);
-        Recursos.texto_no_editable(editTextQuienesSomos);
+        setContentView(R.layout.activity_contacto);
     }
     public void fb(View view){
         startActivity(Recursos.enlaces("https://www.facebook.com/RedSaludMachala"));
@@ -33,11 +28,6 @@ public class QuinesSomos extends AppCompatActivity {
     public void noticias(View view){
         Intent noticias = new Intent(this, Noticias.class);
         startActivity(noticias);
-        finish();
-    }
-    public void contacto(View view){
-        Intent contacto = new Intent(this, Contacto.class);
-        startActivity(contacto);
         finish();
     }
 

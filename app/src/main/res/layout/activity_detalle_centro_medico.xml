@@ -133,6 +133,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="noticias"
             android:text="NOTICIAS"
             android:textColor="@android:color/white" />
 
@@ -143,6 +144,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
+            android:onClick="contacto"
             android:text="CONTACTENOS"
             android:textColor="@android:color/white" />
     </LinearLayout>
