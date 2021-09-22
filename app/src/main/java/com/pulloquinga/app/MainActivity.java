@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.pulloquinga.app.ui.login.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -41,9 +43,21 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageViewqs = (ImageView) findViewById(R.id.quines_somos);
         imageViewqs.setImageDrawable(roundedDrawableqs);
 
-        //Imagen Centros Medicos
+        //Imagen Centros Medico
         Drawable originalDrawablecm = getResources().getDrawable(R.drawable.cmmicono);
         Bitmap originalBitmapcm = ((BitmapDrawable) originalDrawablecm).getBitmap();
+        //Imagen Turnos
+        Drawable originalDrawablet = getResources().getDrawable(R.drawable.turnos);
+        Bitmap originalBitmapt = ((BitmapDrawable) originalDrawablet).getBitmap();
+
+        //creamos el drawable redondeado
+        RoundedBitmapDrawable roundedDrawablet = RoundedBitmapDrawableFactory.create(getResources(), originalBitmapt);
+
+        //asignamos el CornerRadius
+        roundedDrawablet.setCornerRadius(originalBitmap.getHeight());
+        ImageView imageViewt = (ImageView) findViewById(R.id.turnos);
+        imageViewt.setImageDrawable(roundedDrawablet);
+
 
         //creamos el drawable redondeado
         RoundedBitmapDrawable roundedDrawablecm = RoundedBitmapDrawableFactory.create(getResources(), originalBitmapcm);
@@ -71,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cetroMedico);
 
     }
-    public void jornadasmedicas(View view){
-        Intent jornadasmedicas = new Intent(this, JornadasMedicas.class);
-        startActivity(jornadasmedicas);
+    public void turnos(View view){
+        Intent turnos = new Intent(this, LoginActivity.class);
+        startActivity(turnos);
     }
     public void ambulancia(View view){
         Intent ambulancia = new Intent(this, Ambulancia.class);

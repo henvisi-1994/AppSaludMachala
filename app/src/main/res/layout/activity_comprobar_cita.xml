@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondogeneral"
+    tools:context=".ComprobarCita">
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/gothambold"
+        android:text="Cita"
+        android:textAlignment="center"
+        android:textColor="@color/azultitulo"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/especialidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/gothambold"
+        android:text="Revise sus Datos antes de Realizar Pago"
+        android:textAlignment="center"
+        android:textColor="@color/azultitulo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="305dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/especialidad">
+
+        <TextView
+            android:id="@+id/textview5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gothambold"
+            android:text="Especialidad"
+            android:textAlignment="center"
+            android:textColor="@color/azultitulo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textview6"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothambold"
+            android:text="Doctor"
+            android:textAlignment="center"
+            android:textColor="@color/azultitulo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview5"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textview7"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothambold"
+            android:text="Fecha"
+            android:textAlignment="center"
+            android:textColor="@color/azultitulo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview6"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textview8"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothambold"
+            android:text="Hora"
+            android:textAlignment="center"
+            android:textColor="@color/azultitulo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview7" />
+
+        <TextView
+            android:id="@+id/txt_nom_especialidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gothammedium"
+            android:text="Nombre Especialidad"
+            android:textAlignment="center"
+            android:textColor="@color/azulparrafos"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toEndOf="@+id/textview5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_nom_medico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothammedium"
+            android:text="Nombre Medico"
+            android:textAlignment="center"
+            android:textColor="@color/azulparrafos"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toEndOf="@+id/textview6"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nom_especialidad" />
+
+        <TextView
+            android:id="@+id/txt_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothammedium"
+            android:text="Fecha"
+            android:textAlignment="center"
+            android:textColor="@color/azulparrafos"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toEndOf="@+id/textview7"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nom_medico" />
+
+        <TextView
+            android:id="@+id/txt_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/gothammedium"
+            android:text="Hora"
+            android:textAlignment="center"
+            android:textColor="@color/azulparrafos"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toEndOf="@+id/textview8"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fecha"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <Button
+            android:id="@+id/txt_pagar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:text="Realizar Pago" />
+
+        <Button
+            android:id="@+id/txt_regresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:text="Regresar" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

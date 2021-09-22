@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pulloquinga.app.models.CentroMedico;
+import com.pulloquinga.app.models.CentroMedicoDB;
 
 import java.util.ArrayList;
 
@@ -50,7 +51,7 @@ public class AdapterCentrosMedicos extends RecyclerView.Adapter<AdapterCentrosMe
         return listcentromedico.size();
     }
 
-    public class ViewHolderDatos extends RecyclerView.ViewHolder {
+    public static class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView centromedico;
 
         public ViewHolderDatos(View itemView) {
@@ -59,9 +60,11 @@ public class AdapterCentrosMedicos extends RecyclerView.Adapter<AdapterCentrosMe
 
         }
 
-        public void asignarDatos(CentroMedico dato) {
 
+
+        public void asignarDatos(CentroMedico dato) {
             centromedico.setText(dato.getNombre());
+
         }
     }
 }

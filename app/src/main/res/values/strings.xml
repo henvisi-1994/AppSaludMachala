@@ -16,6 +16,21 @@ uno a tres días de acuerdo a la necesidad.</string>
 
     <string name="descripcion_menu">"Nuestro compromiso es claro<b> brindar salud para los machaleños </b>con calidez y eficiencia"</string>
     <string name="descripcion_contactanos">Dir. Av 25 de Junio y Nueve de Mayo, 4 piso del GAD Municipal de Machala rsmmep@salñudmachala.gob.ec</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="welcome">"Bienvenido !"</string>
+    <string name="action_registro">Registro</string>
+    <string name="invalid_username">Usuario no válido</string>
+    <string name="invalid_password">Contraseña debe ser >5 carateres</string>
+    <string name="login_failed">"Credenciales Incorrectas"</string>
+    <string-array name="tipo_medicos_array">
+        <item>SELECCIONE TIPO DE MEDICO</item>
+        <item>MEDICO DE PRODUCCION</item>
+        <item>MEDICO FIJO</item>
+    </string-array>
 
 
 </resources>

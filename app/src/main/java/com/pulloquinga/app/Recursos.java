@@ -10,6 +10,9 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.pulloquinga.app.models.CentroMedicoDB;
+import com.pulloquinga.app.models.Noticia;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +32,5 @@ public class Recursos {
     public static <T> ArrayList<T> listToArrayList(List<T> list) {
         return list != null ? new ArrayList<>(list) : null;
     }
-
-
 
 }
