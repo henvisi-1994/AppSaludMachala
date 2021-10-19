@@ -2,13 +2,14 @@ package com.pulloquinga.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.models.CentroMedico;
 import com.pulloquinga.app.models.CentroMedicoDB;
@@ -27,7 +28,7 @@ public class AdapterCentrosMedicosDB extends RecyclerView.Adapter<AdapterCentros
 
     @Override
     public AdapterCentrosMedicosDB.ViewHolderDatos onCreateViewHolder(ViewGroup parent, int i) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_centros_medicos,null,false);
         context=view.getContext();
 
         return new AdapterCentrosMedicosDB.ViewHolderDatos(view);    }
@@ -59,7 +60,7 @@ public class AdapterCentrosMedicosDB extends RecyclerView.Adapter<AdapterCentros
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            centromedico=(TextView) itemView.findViewById(R.id.txvlist);
+            centromedico=(TextView) itemView.findViewById(R.id.txvnombrecm);
 
         }
 

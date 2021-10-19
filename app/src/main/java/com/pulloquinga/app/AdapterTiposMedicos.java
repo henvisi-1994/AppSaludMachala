@@ -3,16 +3,13 @@ package com.pulloquinga.app;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.pulloquinga.app.models.CentroMedicoDB;
-import com.pulloquinga.app.models.Noticia;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -23,7 +20,6 @@ public class AdapterTiposMedicos extends RecyclerView.Adapter<AdapterTiposMedico
     public AdapterTiposMedicos(ArrayList<String> listEspecialidades) {
         this.listTiposMedicos = listEspecialidades;
     }
-    @NonNull
 
     @Override
     public ViewHolderDatos onCreateViewHolder( ViewGroup parent, int i) {

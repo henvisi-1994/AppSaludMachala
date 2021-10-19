@@ -4,12 +4,15 @@ import java.io.Serializable;
 
 public class Medico implements Serializable {
     private int id_medico;
+    private int id_medico_prod;
     private String tipo_medico;
     private int id_detalleCentroMed;
     private int id_centroMedico;
     private String nombre_medico;
     private int id_especialidad;
     private String nombre_especialidad;
+    private String nombre_centroMedico;
+
 
     public Medico(int id_medico, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad) {
         this.id_medico = id_medico;
@@ -25,12 +28,43 @@ public class Medico implements Serializable {
 
     }
 
+    public Medico(int id_medico, int id_medico_prod, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad) {
+        this.id_medico = id_medico;
+        this.id_medico_prod = id_medico_prod;
+        this.tipo_medico = tipo_medico;
+        this.id_detalleCentroMed = id_detalleCentroMed;
+        this.id_centroMedico = id_centroMedico;
+        this.nombre_medico = nombre_medico;
+        this.id_especialidad = id_especialidad;
+        this.nombre_especialidad = nombre_especialidad;
+    }
+
+    public Medico(int id_medico, int id_medico_prod, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad, String nombre_centroMedico) {
+        this.id_medico = id_medico;
+        this.id_medico_prod = id_medico_prod;
+        this.tipo_medico = tipo_medico;
+        this.id_detalleCentroMed = id_detalleCentroMed;
+        this.id_centroMedico = id_centroMedico;
+        this.nombre_medico = nombre_medico;
+        this.id_especialidad = id_especialidad;
+        this.nombre_especialidad = nombre_especialidad;
+        this.nombre_centroMedico = nombre_centroMedico;
+    }
+
     public int getId_medico() {
         return id_medico;
     }
 
     public void setId_medico(int id_medico) {
         this.id_medico = id_medico;
+    }
+
+    public int getId_medico_prod() {
+        return id_medico_prod;
+    }
+
+    public void setId_medico_prod(int id_medico_prod) {
+        this.id_medico_prod = id_medico_prod;
     }
 
     public String getTipo_medico() {
@@ -81,16 +115,26 @@ public class Medico implements Serializable {
         this.nombre_especialidad = nombre_especialidad;
     }
 
+    public String getNombre_centroMedico() {
+        return nombre_centroMedico;
+    }
+
+    public void setNombre_centroMedico(String nombre_centroMedico) {
+        this.nombre_centroMedico = nombre_centroMedico;
+    }
+
     @Override
     public String toString() {
         return "Medico{" +
                 "id_medico=" + id_medico +
+                ", id_medico_prod=" + id_medico_prod +
                 ", tipo_medico='" + tipo_medico + '\'' +
                 ", id_detalleCentroMed=" + id_detalleCentroMed +
                 ", id_centroMedico=" + id_centroMedico +
                 ", nombre_medico='" + nombre_medico + '\'' +
                 ", id_especialidad=" + id_especialidad +
                 ", nombre_especialidad='" + nombre_especialidad + '\'' +
+                ", nombre_centroMedico='" + nombre_centroMedico + '\'' +
                 '}';
     }
 }

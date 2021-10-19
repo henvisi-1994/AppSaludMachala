@@ -1,6 +1,6 @@
-package  com.pulloquinga.app.ui.login;
+package com.pulloquinga.app.ui.login;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Authentication result : success (user details) or error message.

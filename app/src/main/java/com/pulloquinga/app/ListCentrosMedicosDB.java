@@ -1,10 +1,12 @@
 package com.pulloquinga.app;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.interfaces.ApiService;
@@ -28,11 +30,13 @@ public class ListCentrosMedicosDB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_centros_medicos_db);
         recycler=(RecyclerView) findViewById(R.id.lista_centros_medicos_db);
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
-        int spanCount = 2; // 3 columns
-        int spacing = 30; // 50px
-        boolean includeEdge = false;
-        recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+
+        //recycler.setLayoutManager(new GridLayoutManager(this,2));
+       // int spanCount = 2; // 3 columns
+        //int spacing = 30; // 50px
+        //boolean includeEdge = false;
+        //recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         InizializaDati();
     }
     public  void InizializaDati(){

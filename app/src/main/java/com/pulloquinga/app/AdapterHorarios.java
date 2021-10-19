@@ -2,23 +2,19 @@ package com.pulloquinga.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.pulloquinga.app.models.CentroMedico;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.pulloquinga.app.models.Cita;
-import com.pulloquinga.app.models.DetalleCentroMedico;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
-import com.pulloquinga.app.models.Noticia;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class AdapterHorarios extends RecyclerView.Adapter<AdapterHorarios.ViewHolderDatos>{
     ArrayList<Horario> listhorarios=new ArrayList<Horario>();
@@ -38,8 +34,6 @@ public class AdapterHorarios extends RecyclerView.Adapter<AdapterHorarios.ViewHo
             if( horario.getId_medico()==medico.getId_medico()){
                 this.listhorarios.add(horario);
                 Log.d("horarios Auxiliarrr",horario.toString());
-
-
             }
         }
     }
@@ -48,7 +42,7 @@ public class AdapterHorarios extends RecyclerView.Adapter<AdapterHorarios.ViewHo
     Context context;
 
     public ViewHolderDatos onCreateViewHolder( ViewGroup parent, int i) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_horario,null,false);
         context=view.getContext();
         return new AdapterHorarios.ViewHolderDatos(view);
     }
@@ -90,11 +84,10 @@ public class AdapterHorarios extends RecyclerView.Adapter<AdapterHorarios.ViewHo
         TextView txt_horario;
         public ViewHolderDatos( View itemView) {
             super(itemView);
-            txt_horario=(TextView) itemView.findViewById(R.id.txvlist);
+            txt_horario=(TextView) itemView.findViewById(R.id.txt_horario);
         }
 
         public void asignarDatos(Horario horario) {
-            Log.d("horario",horario.toString());
             txt_horario.setText(horario.getHora());
         }
     }

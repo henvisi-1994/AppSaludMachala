@@ -7,6 +7,7 @@ public class Cita implements Serializable {
     private int id_especialidad;
     private int id_horario;
     private int id_medico;
+    private String nomb_usuario;
 
     public Cita() {
 
@@ -17,6 +18,13 @@ public class Cita implements Serializable {
         this.id_especialidad = id_especialidad;
         this.id_horario = id_horario;
         this.id_medico = id_medico;
+    }
+
+    public Cita( int id_especialidad, int id_horario, int id_medico, String nomb_usuario) {
+        this.id_especialidad = id_especialidad;
+        this.id_horario = id_horario;
+        this.id_medico = id_medico;
+        this.nomb_usuario = nomb_usuario;
     }
 
     public int getId_cita() {
@@ -51,6 +59,14 @@ public class Cita implements Serializable {
         this.id_medico = id_medico;
     }
 
+    public String getNomb_usuario() {
+        return nomb_usuario;
+    }
+
+    public void setNomb_usuario(String nomb_usuario) {
+        this.nomb_usuario = nomb_usuario;
+    }
+
     @Override
     public String toString() {
         return "Cita{" +
@@ -58,6 +74,7 @@ public class Cita implements Serializable {
                 ", id_especialidad=" + id_especialidad +
                 ", id_horario=" + id_horario +
                 ", id_medico=" + id_medico +
+                ", nomb_usuario='" + nomb_usuario + '\'' +
                 '}';
     }
 }

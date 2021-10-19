@@ -2,17 +2,16 @@ package com.pulloquinga.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.pulloquinga.app.models.CentroMedicoDB;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.pulloquinga.app.models.DetalleCentroMedico;
-import com.pulloquinga.app.models.Especialidad;
 
 import java.util.ArrayList;
 
@@ -26,18 +25,23 @@ public class AdapterEspecialidadesDB extends RecyclerView.Adapter<AdapterEspecia
         ArrayList<DetalleCentroMedico> aux=new ArrayList<DetalleCentroMedico>();
         this.tipo_medico=tipo_medico;
         aux = list_detalle_centro_medico;
-        for(int i=0;i<=aux.size()-1;i++){
-            detalle_centro_medico=aux.get(i);
-            if(detalle_centro_medico.getId_centroMedico()==id_centro_medico){
-                this.detalle_centros_medicos.add(detalle_centro_medico);
-            }
+        if(id_centro_medico!=0){
+            for(int i=0;i<=aux.size()-1;i++){
+                detalle_centro_medico=aux.get(i);
+                if(detalle_centro_medico.getId_centroMedico()==id_centro_medico){
+                    this.detalle_centros_medicos.add(detalle_centro_medico);
+                }
 
+            }
+        }else{
+            this.detalle_centros_medicos = list_detalle_centro_medico;
         }
+
     }
 
     @Override
     public AdapterEspecialidadesDB.ViewHolderDatos onCreateViewHolder( ViewGroup parent, int i) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_centros_medicos,null,false);
         context=view.getContext();
 
         return new AdapterEspecialidadesDB.ViewHolderDatos(view);
@@ -53,6 +57,7 @@ public class AdapterEspecialidadesDB extends RecyclerView.Adapter<AdapterEspecia
                 //Log.d("Mensajeeee",String.valueOf(clic.getId()));
                 Intent detalle = new Intent(context, ListMedicos.class);
                 detalle.putExtra("id_especialidad", detalle_centro_medico.getId_especialidad());
+                detalle.putExtra("id_centroM", detalle_centro_medico.getId_centroMedico());
                 detalle.putExtra("tipo_medico", tipo_medico);
                 context.startActivity(detalle);
             }
@@ -69,7 +74,7 @@ public class AdapterEspecialidadesDB extends RecyclerView.Adapter<AdapterEspecia
         TextView detalle_centro_medico;
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            detalle_centro_medico=(TextView) itemView.findViewById(R.id.txvlist);
+            detalle_centro_medico=(TextView) itemView.findViewById(R.id.txvnombrecm);
         }
         public void asignarDatos(DetalleCentroMedico dato) {
             detalle_centro_medico.setText(dato.getNombre_especialidad());

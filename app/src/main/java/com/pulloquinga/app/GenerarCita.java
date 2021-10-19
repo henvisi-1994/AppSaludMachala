@@ -1,14 +1,16 @@
 package com.pulloquinga.app;
 
 import android.app.DatePickerDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.interfaces.ApiService;
@@ -33,6 +35,8 @@ public class GenerarCita extends AppCompatActivity {
     AdapterHorarios adapter;
     private int dia,mes,ano;
     TextView efecha;
+    private TextView emptyView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +49,25 @@ public class GenerarCita extends AppCompatActivity {
         TextView especialidad = (TextView) findViewById(R.id.especialidad);
         especialidad.setText(medico.getNombre_especialidad());
         recycler = (RecyclerView) findViewById(R.id.list_horario);
-        recycler.setLayoutManager(new GridLayoutManager(this, 2));
-        int spanCount = 2; // 3 columns
-        int spacing = 30; // 50px
-        boolean includeEdge = false;
-        recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+        recycler.setTextAlignment(RecyclerView.TEXT_ALIGNMENT_CENTER);
+        emptyView = (TextView) findViewById(R.id.empty_view);
         InizializaDati();
     }
     public void filtrar(String fecha) {
         ArrayList<Horario> filtrarLista = new ArrayList<>();
-        Log.d("Fecha",fecha);
-
         for(Horario horario : horarios) {
-            if(horario.getFecha().compareTo(fecha)==0) {
+            if(horario.getFecha().compareTo(fecha)==0&&horario.getId_medico()==medico.getId_medico()) {
                 filtrarLista.add(horario);
             }
+        }
+        if (filtrarLista.isEmpty()) {
+            recycler.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        }
+        else {
+            recycler.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
         }
 
         adapter.filtrar(filtrarLista);
@@ -75,9 +83,18 @@ public class GenerarCita extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                String fecha_filtro=year+"-"+(monthOfYear + 1)+"-"+dayOfMonth;
+                int dia=dayOfMonth;
+                String diaactual;
+                if(dia>=10){
+                    diaactual=String.valueOf(dayOfMonth);
+                }
+                else{
+                    diaactual="0"+String.valueOf(dayOfMonth);
+                }
+                String fecha_filtro=year+"-"+(monthOfYear + 1)+"-"+diaactual;
                 String fecha = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
                 efecha.setText(fecha);
+                Log.d("Formato Fecha",fecha_filtro);
                 filtrar(fecha_filtro);
             }
         }
@@ -95,13 +112,39 @@ public class GenerarCita extends AppCompatActivity {
             public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
                 final Calendar c= Calendar.getInstance();
                 int dia = c.get(Calendar.DAY_OF_MONTH);
-                int mes=c.get(Calendar.MONTH);
+                int mes=c.get(Calendar.MONTH)+1;
                 int ano=c.get(Calendar.YEAR);
-                String fecha=ano+"-"+mes+"-"+dia;
+                String diaactual;
+                String mesactual;
+
+                if(dia>=10){
+                    diaactual=String.valueOf(dia);
+                }
+                else{
+                    diaactual="0"+String.valueOf(dia);
+                }
+                if(mes>=10){
+                    mesactual=String.valueOf(mes);
+                }
+                else{
+                    mesactual="0"+String.valueOf(mes);
+                }
+                String fecha=ano+"-"+mesactual+"-"+diaactual;
+                String fechaactual=diaactual+"/"+mesactual+"/"+ano;
+                efecha.setText(fechaactual);
+                Log.d("Fecha Actual",fecha);
                 if (response.isSuccessful()) {
                     horarios = (Recursos.listToArrayList(response.body()));
                     int id_centromedico = getIntent().getIntExtra("id_centromedico",0);
                     Log.d("CentroMedico", String.valueOf(id_centromedico));
+                    if (horarios.isEmpty()) {
+                        recycler.setVisibility(View.GONE);
+                        emptyView.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        recycler.setVisibility(View.VISIBLE);
+                        emptyView.setVisibility(View.GONE);
+                    }
                     adapter= new AdapterHorarios(horarios,medico);
                     recycler.setAdapter(adapter);
                     filtrar(fecha);

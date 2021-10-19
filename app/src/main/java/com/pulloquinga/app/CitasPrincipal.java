@@ -1,17 +1,14 @@
 package com.pulloquinga.app;
 
-import android.app.Activity;
-import android.content.Context;
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.models.CentroMedico;
 
@@ -25,18 +22,18 @@ public class CitasPrincipal extends AppCompatActivity {
         ArrayList<String> tipo_medico=new ArrayList();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_citas_principal);
-        recycler=(RecyclerView) findViewById(R.id.lista_tipo_medicos);
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
-        int spanCount = 2; // 3 columns
-        int spacing = 30; // 50px
-        boolean includeEdge = false;
-        recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        String[] aux ={"Medico Fijo","Medico de Produccion"};
-        for (int i=0;i<=(aux.length-1);i++){
-            tipo_medico.add(aux[i]);
-        }
-        AdapterTiposMedicos adapter=new AdapterTiposMedicos(tipo_medico);
-        recycler.setAdapter(adapter);
+
+
+    }
+    public void medico_red(View view){
+        Intent detalle = new Intent(this, ListCentrosMedicosDB.class);
+        detalle.putExtra("tipo_medico", "Medico Fijo");
+        this.startActivity(detalle);
+    }
+    public void medico_produccion(View view){
+        Intent detalle = new Intent(this, list_especialidades_db.class);
+        detalle.putExtra("tipo_medico", "Medico Produccion");
+        this.startActivity(detalle);
 
     }
 }

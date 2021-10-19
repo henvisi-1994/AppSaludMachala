@@ -1,15 +1,22 @@
-package  com.pulloquinga.app.ui.login;
+package com.pulloquinga.app.ui.login;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -20,24 +27,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pulloquinga.app.CitasPrincipal;
-import com.pulloquinga.app.QuinesSomos;
+import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.R;
-import com.pulloquinga.app.ui.login.LoginViewModel;
-import com.pulloquinga.app.ui.login.LoginViewModelFactory;
+import com.pulloquinga.app.RegistroUsuario;
 import com.pulloquinga.app.databinding.ActivityLoginBinding;
+import com.pulloquinga.app.interfaces.ApiService;
+import com.pulloquinga.app.models.RespuestaLoguin;
+import com.pulloquinga.app.models.Usuario;
+
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-private ActivityLoginBinding binding;
-
+    private ActivityLoginBinding binding;
+    private EditText email;
+    private EditText password;
+    private ApiService servicio= Config.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     binding = ActivityLoginBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
-
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -45,6 +60,8 @@ private ActivityLoginBinding binding;
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
+        email = usernameEditText;
+        password = passwordEditText;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -124,12 +141,55 @@ private ActivityLoginBinding binding;
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome);
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
         // TODO : Ingresar a pantalla principal de citas
+        Usuario usuario = new Usuario(email.getText().toString(),password.getText().toString()) ;
+        Call<RespuestaLoguin> call = servicio.loggearse(usuario);
+        call.enqueue(new Callback<RespuestaLoguin>() {
+            @Override
+            public void onResponse(Call<RespuestaLoguin> call, Response<RespuestaLoguin> response) {
+                try{
+                    String respuesta = response.message();
+                    switch (respuesta){
+                        case "OK":
+                            String welcome = getString(R.string.welcome);
+                            Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+                            ingresar();
+                            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("token", response.body().getAccess_token());
+                            editor.putString("user", response.body().getUser());
+                            Log.d("TOKEN",response.body().getAccess_token());
+                            editor.commit();
+
+                            break;
+                        case "Unauthorized":
+                            Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                            break;
+                    }
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<RespuestaLoguin> call, Throwable t) {
+                Log.d("Error Login: ",call.toString());
+                String welcome = "NO se pudo Iniciar sesion";
+                Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+
+    }
+    public void ingresar() {
         Intent citas_principal = new Intent(this, CitasPrincipal.class);
         startActivity(citas_principal);
-
+    }
+    public  void Registro(View view){
+        Intent registro = new Intent(this, RegistroUsuario.class);
+        startActivity(registro);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

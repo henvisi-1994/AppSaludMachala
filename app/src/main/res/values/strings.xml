@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">App</string>
     <!-- Strings used for fragments for navigation -->
     <string name="cuenta">"@RedsaludMachala"</string>
@@ -14,7 +14,7 @@ uno a tres días de acuerdo a la necesidad.</string>
     <string name="descripcion_cm2">Para solicitar uno de estos servicios, presentar un oficio en nuestras oficinas
     principales</string>
 
-    <string name="descripcion_menu">"Nuestro compromiso es claro<b> brindar salud para los machaleños </b>con calidez y eficiencia"</string>
+    <string name="descripcion_menu">"Nuestro compromiso es claro<b> brindar salud para los machaleños </b>con eficiencia y calidez"</string>
     <string name="descripcion_contactanos">Dir. Av 25 de Junio y Nueve de Mayo, 4 piso del GAD Municipal de Machala rsmmep@salñudmachala.gob.ec</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -31,6 +31,13 @@ uno a tres días de acuerdo a la necesidad.</string>
         <item>MEDICO DE PRODUCCION</item>
         <item>MEDICO FIJO</item>
     </string-array>
+    <string name="token"></string>
+    <string name="no_data_available">No Existen Horarios Disponibles.</string>
+    <string name="redsalud" tools:ignore="StringEscaping">@RedSaludMachala</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

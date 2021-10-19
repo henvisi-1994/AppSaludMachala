@@ -1,14 +1,15 @@
 package com.pulloquinga.app;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.models.CentroMedico;
 
@@ -33,7 +34,6 @@ public class DetalleCentroMedico extends AppCompatActivity {
             int spacing = 30; // 50px
             boolean includeEdge = false;
             recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
             txvnombre = (TextView)findViewById(R.id.txvnombre);
         txvtelefono = (TextView)findViewById(R.id.txvtelefono);
         txvdireccion = (TextView)findViewById(R.id.txvdireccion);

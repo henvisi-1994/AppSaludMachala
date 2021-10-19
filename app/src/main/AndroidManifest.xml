@@ -12,15 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ComprobarCita"></activity>
+        <activity android:name=".RegistroUsuario"></activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".GestionPago" />
+        <activity android:name=".ComprobarCita" />
         <activity android:name=".GenerarCita" />
         <activity android:name=".ListMedicos" />
         <activity android:name=".list_especialidades_db" />
         <activity android:name=".ListCentrosMedicosDB" />
         <activity android:name=".CitasPrincipal" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".Contacto" />
         <activity android:name=".DetalleNoticia" />
         <activity android:name=".Noticias" />

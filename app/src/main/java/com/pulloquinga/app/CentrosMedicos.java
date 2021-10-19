@@ -2,11 +2,15 @@ package com.pulloquinga.app;
 
 import android.content.Intent;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.models.CentroMedico;
 
@@ -21,11 +25,13 @@ public class CentrosMedicos extends AppCompatActivity {
         setContentView(R.layout.activity_centros_medicos);
         recycler=(RecyclerView) findViewById(R.id.recycler_cm);
         //recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL,false));
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
-        int spanCount = 2; // 3 columns
-        int spacing = 50; // 50px
-        boolean includeEdge = false;
-        recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        //recycler.setLayoutManager(new GridLayoutManager(this,2));
+        recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+
+        //int spanCount = 2; // 3 columns
+        //int spacing = 50; // 50px
+        //boolean includeEdge = false;
+        //recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         InizializaDati();
         AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
         recycler.setAdapter(adapter);

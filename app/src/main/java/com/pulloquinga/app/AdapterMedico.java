@@ -2,13 +2,15 @@ package com.pulloquinga.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pulloquinga.app.models.DetalleCentroMedico;
 import com.pulloquinga.app.models.Medico;
@@ -21,22 +23,21 @@ public class AdapterMedico extends RecyclerView.Adapter<AdapterMedico.ViewHolder
     ArrayList<Medico> listMedico=new ArrayList<Medico>();
     Context context;
 
-    public AdapterMedico(ArrayList<Medico> listMedico,int id_especialidad,String tipo_medico) {
+    public AdapterMedico(ArrayList<Medico> listMedico,int id_especialidad,String tipo_medico,int id_centroM) {
         Medico medico=new Medico();
         ArrayList<Medico> aux = new ArrayList<Medico>();
         this.tipo_medico=tipo_medico;
         aux = listMedico;
         for (int i = 0; i <= aux.size() - 1; i++) {
             medico = aux.get(i);
-            if (medico.getId_especialidad() == id_especialidad) {
+            if (medico.getId_especialidad() == id_especialidad&&medico.getId_centroMedico()==id_centroM) {
                 this.listMedico.add(medico);
             }
         }
     }
-
     @Override
     public AdapterMedico.ViewHolderDatos onCreateViewHolder(ViewGroup parent, int i) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_medico,null,false);
         context=view.getContext();
 
         return new AdapterMedico.ViewHolderDatos(view);
@@ -58,11 +59,12 @@ public class AdapterMedico extends RecyclerView.Adapter<AdapterMedico.ViewHolder
                         context.startActivity(generar_cita);
                     break;
                     case "Medico Produccion":
+                        String telefono="593987134408";
+                        String mensaje="Saludos deseo agendar una cita con el medico: "+medico.getNombre_medico()+
+                                " en la especialidad de: "+medico.getNombre_especialidad();
+                        Recursos.enviarMensajeWS(telefono,mensaje,context);
                         break;
                 }
-
-
-
             }
         });
 
@@ -77,11 +79,10 @@ public class AdapterMedico extends RecyclerView.Adapter<AdapterMedico.ViewHolder
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            medico=(TextView) itemView.findViewById(R.id.txvlist);
+            medico=(TextView) itemView.findViewById(R.id.txtv_nombreMedico);
 
         }
         public void asignarDatos(Medico dato) {
-            Log.d("Holaaaaaaaaa",dato.getNombre_medico());
             medico.setText(dato.getNombre_medico());
         }
     }

@@ -1,4 +1,4 @@
-package  com.pulloquinga.app.ui.login;
+package com.pulloquinga.app.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.

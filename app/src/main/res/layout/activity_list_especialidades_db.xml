@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
+    android:paddingBottom="30dp"
     tools:context=".list_especialidades_db">
+
     <TextView
         android:id="@+id/textViewlist_edb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothambold"
         android:text="ESPECIALIDADES"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <android.support.v7.widget.RecyclerView
+
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lista_especialidades_db"
-        android:layout_width="288dp"
-        android:layout_height="480dp"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:scrollbarDefaultDelayBeforeFade="350"
+        android:scrollbarSize="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewlist_edb" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewlist_edb"
+        app:layout_constraintVertical_bias="0.0" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,12 @@
 package com.pulloquinga.app;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ClinicasMoviles extends AppCompatActivity {
     EditText editTextdescripcionclinica;
@@ -23,7 +24,7 @@ public class ClinicasMoviles extends AppCompatActivity {
 
 
     public void enlaceclinicamoviles(View view){
-        startActivity(Recursos.enlaces("https://saludmachala.gob.ec/wp-content/uploads/2021/05/MODELO-DE-SOLICITUD-DE-JORNADA-MEDICA.pdf"));
+        startActivity(Recursos.enlaces("http://saludmachala.gob.ec/wp-content/uploads/2021/08/formato-para-solicitar-JORNADA-O-CLINICA-MOVIL..pdf"));
     }
     public void inicio(View view){
         Intent inicio = new Intent(this, MainActivity.class);
