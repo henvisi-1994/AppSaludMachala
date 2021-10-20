@@ -9,6 +9,8 @@ import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.Noticia;
 import com.pulloquinga.app.models.RespuestaLoguin;
 import com.pulloquinga.app.models.RespuestaServer;
+import com.pulloquinga.app.models.Tarjeta;
+import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.models.Usuario;
 
 import java.util.List;
@@ -47,4 +49,8 @@ public interface ApiService {
     Call<RespuestaServer> eliminar_horario(@Header("Authorization") String content_type, @Path("id")int id);
     @GET("medicos_produccion")
     Call<List<Medico>> getMedicoProduccion();
+    @GET("card/list")
+    Call<List<Tarjeta>> obtener_tarjeta(@Header("Auth-Token") String content_type, @Path("uid")String uid);
+    @GET("obetener_token_pago")
+    Call <TokenPago> getTokenPago();
 }

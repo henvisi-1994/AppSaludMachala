@@ -1,6 +1,7 @@
 package com.pulloquinga.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.SyncStateContract;
@@ -74,6 +75,10 @@ public class GestionPago extends AppCompatActivity {
 
         }
 
+    }
+    public void agregarCard(View view){
+        Intent detalle = new Intent(this, AgregarTarjeta.class);
+        this.startActivity(detalle);
     }
     public void guardar(View view) {
         try{

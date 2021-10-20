@@ -15,6 +15,7 @@ import com.pulloquinga.app.interfaces.ApiService;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.RespuestaServer;
+import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.ui.login.LoginActivity;
 
 import retrofit2.Call;
@@ -45,7 +46,27 @@ public class ComprobarCita extends AppCompatActivity {
         txt_valor.setText("$ "+String.valueOf(5.50));
 
     }
+    public  void InizializaDati() {
+        try {
+            Call<TokenPago> listCall = servicio.getTokenPago();
+            listCall.enqueue(new Callback<TokenPago>() {
+                @Override
+                public void onResponse(Call<TokenPago> call, Response<TokenPago> response) {
+                    Log.d("tokennnPAGO",response.body().toString());
+                }
+
+                @Override
+                public void onFailure(Call<TokenPago> call, Throwable t) {
+
+                }
+            });
+
+        }catch (Exception e){
+            Log.d("Error",e.toString());
+        }
+    }
     public void gestionPago(View view){
+        InizializaDati();
         Intent gp = new Intent(this, GestionPago.class);
         gp.putExtra("medico", medico);
         gp.putExtra("horario", horario);
