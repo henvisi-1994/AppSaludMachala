@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigPagos {
-    public static final String BASEURL="https://ccapi-stg.paymentez.com/v2/";
+    public static final String BASEURL="https://ccapi-stg.paymentez.com/v2/card/";
 
 
     public static Retrofit retrofit;

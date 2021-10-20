@@ -4,27 +4,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.pulloquinga.app.Config.Config;
+import com.pulloquinga.app.Config.ConfigPagos;
 import com.pulloquinga.app.interfaces.ApiService;
+import com.pulloquinga.app.models.Card;
 import com.pulloquinga.app.models.Cita;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.RespuestaServer;
-import com.squareup.picasso.Picasso;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.paymentez.android.Paymentez;
-import com.paymentez.android.model.Card;
-import com.paymentez.android.rest.TokenCallback;
-import com.paymentez.android.rest.model.PaymentezError;
 import com.paymentez.android.view.CardMultilineWidget;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,8 +33,12 @@ import retrofit2.Response;
 public class GestionPago extends AppCompatActivity {
     public CardMultilineWidget cw;
     private ApiService servicio= Config.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
+    private ApiService servicio_pago= ConfigPagos.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
     public Medico medico;
     public Horario horario;
+    public String token;
+    public ArrayList<Card> tarjetas=new ArrayList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class GestionPago extends AppCompatActivity {
             setContentView(R.layout.activity_gestion_pago);
             medico = (Medico) getIntent().getSerializableExtra("medico");
             horario = (Horario) getIntent().getSerializableExtra("horario");
+            token = getIntent().getStringExtra("token");
         /*Card tarjeta=new Card();
         tarjeta.setNumber("4111111111111111");
         tarjeta.setHolderName("RevolutionTech");
@@ -68,12 +73,39 @@ public class GestionPago extends AppCompatActivity {
             //Paymentez.setEnvironment(test_mode, "AbiColApp",paymentez_client_app_key );
             Paymentez.setEnvironment(test_mode, paymentez_client_app_code,paymentez_client_app_key );
             cw=(CardMultilineWidget)findViewById(R.id.card_pago);
+            InizializaDati();
 
         }
         catch (Exception e){
             Log.d("Error",e.toString());
 
         }
+
+    }
+    public  void InizializaDati(){
+        //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
+        try{
+        Call<List<Card>> listCall=servicio_pago.obtener_tarjeta(token,"0705332989");
+        listCall.enqueue(new Callback<List<Card>>() {
+            @Override
+            public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
+                tarjetas=(Recursos.listToArrayList(response.body()));
+                //Log.d("Card",tarjetas.get(0).toString());
+                Log.d("SIZE ARREGO",String.valueOf(response.body().isEmpty()));
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Card>> call, Throwable t) {
+
+            }
+        });
+        }
+         catch (Exception e){
+             Log.e("ERROR", e.toString());
+
+          }
+
 
     }
     public void agregarCard(View view){

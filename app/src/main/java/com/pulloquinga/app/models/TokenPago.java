@@ -1,16 +1,14 @@
+
 package com.pulloquinga.app.models;
 
-import java.io.Serializable;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class TokenPago implements Serializable {
+public class TokenPago {
+
+    @SerializedName("authtoken")
+    @Expose
     private String authtoken;
-
-    public TokenPago() {
-    }
-
-    public TokenPago(String authtoken) {
-        this.authtoken = authtoken;
-    }
 
     public String getAuthtoken() {
         return authtoken;
@@ -27,3 +25,4 @@ public class TokenPago implements Serializable {
                 '}';
     }
 }
+

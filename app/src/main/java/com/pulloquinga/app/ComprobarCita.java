@@ -26,6 +26,7 @@ public class ComprobarCita extends AppCompatActivity {
     private ApiService servicio= Config.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
     public Medico medico;
     public Horario horario;
+    public String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +47,18 @@ public class ComprobarCita extends AppCompatActivity {
         txt_valor.setText("$ "+String.valueOf(5.50));
 
     }
-    public  void InizializaDati() {
+
+    public void gestionPago(View view){
         try {
             Call<TokenPago> listCall = servicio.getTokenPago();
             listCall.enqueue(new Callback<TokenPago>() {
                 @Override
                 public void onResponse(Call<TokenPago> call, Response<TokenPago> response) {
-                    Log.d("tokennnPAGO",response.body().toString());
+                    Intent gp = new Intent(view.getContext(), GestionPago.class);
+                    gp.putExtra("medico", medico);
+                    gp.putExtra("horario", horario);
+                    gp.putExtra("token", response.body().getAuthtoken());
+                    startActivity(gp);
                 }
 
                 @Override
@@ -64,12 +70,5 @@ public class ComprobarCita extends AppCompatActivity {
         }catch (Exception e){
             Log.d("Error",e.toString());
         }
-    }
-    public void gestionPago(View view){
-        InizializaDati();
-        Intent gp = new Intent(this, GestionPago.class);
-        gp.putExtra("medico", medico);
-        gp.putExtra("horario", horario);
-        startActivity(gp);
     }
 }
