@@ -44,7 +44,7 @@ public class ComprobarCita extends AppCompatActivity {
         txt_fecha.setText(horario.getFecha());
         txt_hora.setText(horario.getHora());
         txt_centroM.setText(medico.getNombre_centroMedico());
-        txt_valor.setText("$ "+String.valueOf(5.50));
+        txt_valor.setText("$ "+medico.getValor());
 
     }
 

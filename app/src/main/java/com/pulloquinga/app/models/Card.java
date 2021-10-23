@@ -4,7 +4,10 @@ package com.pulloquinga.app.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Card {
+import java.io.Serializable;
+import java.util.List;
+
+public class Card implements Serializable {
 
     @SerializedName("bin")
     @Expose
@@ -33,6 +36,7 @@ public class Card {
     @SerializedName("number")
     @Expose
     private String number;
+
 
     public String getBin() {
         return bin;

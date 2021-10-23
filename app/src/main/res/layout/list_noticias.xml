@@ -30,19 +30,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-        <EditText
+        <TextView
             android:id="@+id/txmltitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:fontFamily="@font/gothammedium"
-            android:inputType="textMultiLine"
-            android:text="Titulo de noticia"
+            android:fontFamily="@font/gothambold"
+            android:text="TextView"
             android:textAlignment="center"
             android:textColor="@color/azultitulo"
-            android:textSize="20sp"
-            tools:ignore="MissingConstraints" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txvfecha"

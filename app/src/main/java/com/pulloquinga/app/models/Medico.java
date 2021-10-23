@@ -12,6 +12,7 @@ public class Medico implements Serializable {
     private int id_especialidad;
     private String nombre_especialidad;
     private String nombre_centroMedico;
+    private double valor;
 
 
     public Medico(int id_medico, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad) {
@@ -24,8 +25,29 @@ public class Medico implements Serializable {
         this.nombre_especialidad = nombre_especialidad;
     }
 
+    public Medico(int id_medico, int id_medico_prod, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad, String nombre_centroMedico, double valor) {
+        this.id_medico = id_medico;
+        this.id_medico_prod = id_medico_prod;
+        this.tipo_medico = tipo_medico;
+        this.id_detalleCentroMed = id_detalleCentroMed;
+        this.id_centroMedico = id_centroMedico;
+        this.nombre_medico = nombre_medico;
+        this.id_especialidad = id_especialidad;
+        this.nombre_especialidad = nombre_especialidad;
+        this.nombre_centroMedico = nombre_centroMedico;
+        this.valor = valor;
+    }
+
     public Medico() {
 
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public Medico(int id_medico, int id_medico_prod, String tipo_medico, int id_detalleCentroMed, int id_centroMedico, String nombre_medico, int id_especialidad, String nombre_especialidad) {
@@ -135,6 +157,7 @@ public class Medico implements Serializable {
                 ", id_especialidad=" + id_especialidad +
                 ", nombre_especialidad='" + nombre_especialidad + '\'' +
                 ", nombre_centroMedico='" + nombre_centroMedico + '\'' +
+                ", valor=" + valor +
                 '}';
     }
 }

@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imgdetallenoticia"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200sp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -52,7 +52,7 @@
     <EditText
         android:id="@+id/editTextdesarrollonoticia"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         android:layout_marginTop="2dp"
         android:background="@android:color/transparent"
         android:ems="10"
@@ -61,7 +61,7 @@
         android:maxLines="19"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
-        android:paddingBottom="20sp"
+        android:paddingBottom="80sp"
         android:scrollbars="vertical"
         android:text="Descripcion Noticia"
         android:textColor="@color/azulparrafos"
@@ -70,12 +70,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtvtitulonoticia"
         tools:ignore="MissingConstraints" />
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Menu"
         android:layout_width="0dp"
         android:layout_height="51dp"
         android:paddingLeft="5dp"
+        android:paddingTop="50dp"
         android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,6 +6,8 @@ public class RespuestaLoguin implements Serializable {
       String access_token;
       String token_type;
       String user;
+        String email;
+        String identificacion;
 
     public RespuestaLoguin() {
 
@@ -15,6 +17,30 @@ public class RespuestaLoguin implements Serializable {
         this.access_token = access_token;
         this.token_type = token_type;
         this.user = user;
+    }
+
+    public RespuestaLoguin(String access_token, String token_type, String user, String email, String identificacion) {
+        this.access_token = access_token;
+        this.token_type = token_type;
+        this.user = user;
+        this.email = email;
+        this.identificacion = identificacion;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
     public String getAccess_token() {
@@ -47,6 +73,8 @@ public class RespuestaLoguin implements Serializable {
                 "access_token='" + access_token + '\'' +
                 ", token_type='" + token_type + '\'' +
                 ", user='" + user + '\'' +
+                ", email='" + email + '\'' +
+                ", identificacion='" + identificacion + '\'' +
                 '}';
     }
 }

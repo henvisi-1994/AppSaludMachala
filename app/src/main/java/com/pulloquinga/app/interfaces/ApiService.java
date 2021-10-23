@@ -3,10 +3,15 @@ package com.pulloquinga.app.interfaces;
 import com.pulloquinga.app.models.CentroMedicoDB;
 import com.pulloquinga.app.models.Cita;
 import com.pulloquinga.app.models.DetalleCentroMedico;
+import com.pulloquinga.app.models.Email;
 import com.pulloquinga.app.models.Especialidad;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.Noticia;
+import com.pulloquinga.app.models.OUC;
+import com.pulloquinga.app.models.RequestCita;
+import com.pulloquinga.app.models.RequestOUC;
+import com.pulloquinga.app.models.RequireEmail;
 import com.pulloquinga.app.models.RespuestaLoguin;
 import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.Card;
@@ -44,13 +49,17 @@ public interface ApiService {
     @POST("usuario")
     Call<RespuestaServer> registro(@Body Usuario usuario);
     @POST("citas")
-    Call<Cita> registro_cita(@Header("Authorization") String content_type,@Body Cita cita);
+    Call<Cita> registro_cita(@Header("Authorization") String content_type, @Body Cita cita);
     @DELETE("horarios/{id}")
     Call<RespuestaServer> eliminar_horario(@Header("Authorization") String content_type, @Path("id")int id);
     @GET("medicos_produccion")
     Call<List<Medico>> getMedicoProduccion();
-    @GET("list")
-    Call<List<Card>> obtener_tarjeta(@Header("Auth-Token") String content_type, @Query("uid")String uid);
+    @GET("obtener_tarjeta/{identificacion}")
+    Call<List<Card>> obtener_tarjeta(@Path("identificacion")String identificacion);
     @GET("obetener_token_pago")
     Call <TokenPago> getTokenPago();
+    @POST("debit")
+    Call<RequestOUC> generar_pago(@Header("Auth-Token") String content_type, @Body OUC ouc);
+    @POST("email_cita")
+    Call<RequireEmail> enviar_email(@Header("Authorization") String content_type, @Body Email email);
 }

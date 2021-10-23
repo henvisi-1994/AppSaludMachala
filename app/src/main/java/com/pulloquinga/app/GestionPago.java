@@ -15,10 +15,13 @@ import com.pulloquinga.app.models.Card;
 import com.pulloquinga.app.models.Cita;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
+import com.pulloquinga.app.models.Noticia;
 import com.pulloquinga.app.models.RespuestaServer;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.paymentez.android.Paymentez;
 import com.paymentez.android.view.CardMultilineWidget;
@@ -31,13 +34,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class GestionPago extends AppCompatActivity {
-    public CardMultilineWidget cw;
     private ApiService servicio= Config.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
-    private ApiService servicio_pago= ConfigPagos.getRetrofit().create(com.pulloquinga.app.interfaces.ApiService.class);
     public Medico medico;
     public Horario horario;
     public String token;
     public ArrayList<Card> tarjetas=new ArrayList();
+    RecyclerView recycler;
 
 
     @Override
@@ -49,6 +51,7 @@ public class GestionPago extends AppCompatActivity {
             medico = (Medico) getIntent().getSerializableExtra("medico");
             horario = (Horario) getIntent().getSerializableExtra("horario");
             token = getIntent().getStringExtra("token");
+
         /*Card tarjeta=new Card();
         tarjeta.setNumber("4111111111111111");
         tarjeta.setHolderName("RevolutionTech");
@@ -72,7 +75,8 @@ public class GestionPago extends AppCompatActivity {
             String paymentez_client_app_key="ZfapAKOk4QFXheRNvndVib9XU3szzg";
             //Paymentez.setEnvironment(test_mode, "AbiColApp",paymentez_client_app_key );
             Paymentez.setEnvironment(test_mode, paymentez_client_app_code,paymentez_client_app_key );
-            cw=(CardMultilineWidget)findViewById(R.id.card_pago);
+            recycler=(RecyclerView) findViewById(R.id.list_tarjetas);
+            recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
             InizializaDati();
 
         }
@@ -85,19 +89,23 @@ public class GestionPago extends AppCompatActivity {
     public  void InizializaDati(){
         //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
         try{
-        Call<List<Card>> listCall=servicio_pago.obtener_tarjeta(token,"0705332989");
+            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
+            String identificacion = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            Log.d("IDENTIFICACION",identificacion);
+            Call<List<Card>> listCall=servicio.obtener_tarjeta(identificacion);
         listCall.enqueue(new Callback<List<Card>>() {
             @Override
             public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
-                tarjetas=(Recursos.listToArrayList(response.body()));
-                //Log.d("Card",tarjetas.get(0).toString());
-                Log.d("SIZE ARREGO",String.valueOf(response.body().isEmpty()));
-
+                if (response.isSuccessful()){
+                    tarjetas=(Recursos.listToArrayList(response.body()));
+                    AdapterCards adapter=new AdapterCards(tarjetas,medico,horario);
+                    recycler.setAdapter(adapter);
+                }
             }
 
             @Override
             public void onFailure(Call<List<Card>> call, Throwable t) {
-
+                Log.d("ERROR" ,t.getMessage());
             }
         });
         }
@@ -112,7 +120,7 @@ public class GestionPago extends AppCompatActivity {
         Intent detalle = new Intent(this, AgregarTarjeta.class);
         this.startActivity(detalle);
     }
-    public void guardar(View view) {
+    /*public void guardar(View view) {
         try{
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
             String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
@@ -131,60 +139,14 @@ public class GestionPago extends AppCompatActivity {
                 Log.d("Errorrrrr",t.toString());
                 }
             });
-            /*Card cardToSave=cw.getCard();
 
-            Paymentez.addCard(this, "0705332989", "frankwilliams2905@gmail.com", cardToSave, new TokenCallback() {
-
-                public void onSuccess(Card card) {
-
-                    if(card != null){
-                        if(card.getStatus().equals("valid")){
-                            Log.d("Card Successfully Added","status: " + card.getStatus() + "\n" +
-                                    "Card Token: " + card.getToken() + "\n" +
-                                    "transaction_reference: " + card.getTransactionReference());
-                            Toast.makeText(getApplicationContext(), "Card Successfully Added"+"status: " + card.getStatus() + "\n" +
-                                    "Card Token: " + card.getToken() + "\n" +
-                                    "transaction_reference: " + card.getTransactionReference(), Toast.LENGTH_LONG).show();
-
-                        } else if (card.getStatus().equals("review")) {
-                            Log.d("Card Under Review","status: " + card.getStatus() + "\n" +
-                                    "Card Token: " + card.getToken() + "\n" +
-                                    "transaction_reference: " + card.getTransactionReference());
-                            Toast.makeText(getApplicationContext(), "Card Under Review" + "status: " + card.getStatus() + "\n" +
-                                    "Card Token: " + card.getToken() + "\n" +
-                                    "transaction_reference: " + card.getTransactionReference(),Toast.LENGTH_LONG).show();
-
-                        } else {
-                            Log.d("Error","status: " + card.getStatus() + "\n" +
-                                    "message: " + card.getMessage());
-                            Toast.makeText(getApplicationContext(), "Error" +"status: " + card.getStatus() + "\n" +
-                                    "message: " + card.getMessage(),Toast.LENGTH_LONG).show() ;
-                        }
-
-
-                    }
-
-                    //TODO: Create charge or Save Token to your backend
-                }
-
-                public void onError(PaymentezError error) {
-                    Log.d("Error","status: " + "Type: " + error.getType() + "\n" +
-                            "Help: " + error.getHelp() + "\n" +
-                            "Description: " + error.getDescription());
-                    Toast.makeText(getApplicationContext(), "Error" +"status: " + "Type: " + error.getType() + "\n" +
-                            "Help: " + error.getHelp() + "\n" +
-                            "Description: " + error.getDescription(),Toast.LENGTH_LONG).show() ;
-                    //TODO: Handle error
-                }
-
-            });*/
         }
         catch (Exception e){
             Log.d("Error Guardar",e.toString());
 
         }
 
-    }
+    }*/
     public void borrar_horario(){
         SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
         String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")

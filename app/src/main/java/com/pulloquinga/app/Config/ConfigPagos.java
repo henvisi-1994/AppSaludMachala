@@ -6,14 +6,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigPagos {
-    public static final String BASEURL="https://ccapi-stg.paymentez.com/v2/card/";
+    public static final String BASEURL="https://ccapi-stg.paymentez.com/v2/transaction/";
 
 
     public static Retrofit retrofit;
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-
                     .baseUrl(BASEURL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

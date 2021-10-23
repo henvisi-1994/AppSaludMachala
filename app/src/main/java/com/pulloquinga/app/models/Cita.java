@@ -1,13 +1,27 @@
 package com.pulloquinga.app.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Cita implements Serializable {
+    @SerializedName("id_cita")
+    @Expose
     private int id_cita;
+    @SerializedName("id_especialidad")
+    @Expose
     private int id_especialidad;
+    @SerializedName("id_horario")
+    @Expose
     private int id_horario;
+    @SerializedName("id_medico")
+    @Expose
     private int id_medico;
+    @SerializedName("nomb_usuario")
+    @Expose
     private String nomb_usuario;
+
 
     public Cita() {
 
