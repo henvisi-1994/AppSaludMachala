@@ -82,7 +82,7 @@ public class AdapterCards extends RecyclerView.Adapter<AdapterCards.ViewHolderDa
         public void asignarDatos(Card dato) {
             String numero_tarjeta="XXXXXX"+dato.getNumber();
             String url_imagen="";
-            String url="http://192.168.5.128/apiredsaludmachala/public/img/logotarjetas/";
+            String url="https://apiapp.saludmachala.gob.ec/img/logotarjetas/";
             txt_num_tarjeta.setText(numero_tarjeta);
             txt_nomb_titular.setText(dato.getHolderName());
             switch (dato.getType()){

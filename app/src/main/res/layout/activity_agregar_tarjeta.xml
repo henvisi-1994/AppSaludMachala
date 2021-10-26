@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondogeneral"
     tools:context=".AgregarTarjeta">
 
     <EditText
@@ -12,8 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Nombre de Titular de la Tarjeta"
+        android:inputType="textPersonName"
+        android:textColor="@color/azulparrafos"
+        android:textColorHint="@color/azulparrafos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +43,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Numero de Tarjeta"
         android:inputType="textPersonName"
         android:text=""
-        android:hint="Numero de Tarjeta"
+        android:textColor="@color/azulparrafos"
+        android:textColorHint="@color/azulparrafos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextnombtitu" />
@@ -63,9 +68,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Fecha de Caducidad"
-            android:text="" />
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/azulparrafos"
+            android:textColorHint="@color/azulparrafos" />
 
         <EditText
             android:id="@+id/editTextcvc"
@@ -73,9 +80,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="CVC"
-            android:text="" />
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/azulparrafos"
+            android:textColorHint="@color/azulparrafos" />
     </LinearLayout>
 
     <Button

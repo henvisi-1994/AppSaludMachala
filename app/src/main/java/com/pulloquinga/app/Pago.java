@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +21,6 @@ import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.OUC;
 import com.pulloquinga.app.models.Order;
-import com.pulloquinga.app.models.RequestCita;
 import com.pulloquinga.app.models.RequestOUC;
 import com.pulloquinga.app.models.RequireEmail;
 import com.pulloquinga.app.models.RespuestaServer;
@@ -44,6 +42,7 @@ public OUC ouc;
 public Medico medico;
 public Horario horario;
 TextView txt_ci,txt_nomb,txt_email,txt_desc,txt_nrefer;
+String smail,spassword;
 TextView txt_precio;
     Context context;
 
@@ -64,6 +63,8 @@ TextView txt_precio;
         String description="Reserva de cita médica a través de Red de Salud con el Doctor "+medico.getNombre_medico()
                 +" en la especialidad de "+medico.getNombre_especialidad()+" en el centro medico "+medico.getNombre_centroMedico();
         String dev_reference="C-001";
+        smail="reservas.ap@saludmachala.gob.ec";
+                spassword="AppSalud2021**";
         double tax_percentage=0.0;
         double taxable_amount=amount;
         double vat=0.0;
@@ -127,9 +128,7 @@ TextView txt_precio;
                 Log.d("PAGOO",response.body().getTransaction().getMessage());
                 generar_cita();
                 enviar_email();
-
             }
-
             @Override
             public void onFailure(Call<RequestOUC> call, Throwable t) {
                 Log.d("Errorrrrr",t.toString());
@@ -141,15 +140,13 @@ TextView txt_precio;
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
             String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             String user = prefs.getString("user", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-            Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user);
+            Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
             Call<RequireEmail> call = servicio.enviar_email(token,email);
             call.enqueue(new Callback<RequireEmail>() {
                 @Override
                 public void onResponse(Call<RequireEmail> call, Response<RequireEmail> response) {
                     try{
                         Log.d("EMAIL",response.body().toString());
-
-
                     }catch(Exception e){
                         Log.d("Errorrrrr",e.toString());
                     }

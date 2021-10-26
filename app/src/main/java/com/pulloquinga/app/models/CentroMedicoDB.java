@@ -8,6 +8,7 @@ public class CentroMedicoDB implements Serializable {
     private String direccion_centroMedico;
     private String telef_centroMedico;
     private String ubic_centroMedico;
+    private String nombre_especialidad;
 
 
     public CentroMedicoDB(int id_centroMedico, String nombre_centroMedico, String direccion_centroMedico, String telef_centroMedico, String ubic_centroMedico) {
@@ -16,6 +17,23 @@ public class CentroMedicoDB implements Serializable {
         this.direccion_centroMedico = direccion_centroMedico;
         this.telef_centroMedico = telef_centroMedico;
         this.ubic_centroMedico = ubic_centroMedico;
+    }
+
+    public CentroMedicoDB(int id_centroMedico, String nombre_centroMedico, String direccion_centroMedico, String telef_centroMedico, String ubic_centroMedico, String nombre_especialidad) {
+        this.id_centroMedico = id_centroMedico;
+        this.nombre_centroMedico = nombre_centroMedico;
+        this.direccion_centroMedico = direccion_centroMedico;
+        this.telef_centroMedico = telef_centroMedico;
+        this.ubic_centroMedico = ubic_centroMedico;
+        this.nombre_especialidad = nombre_especialidad;
+    }
+
+    public String getNombre_especialidad() {
+        return nombre_especialidad;
+    }
+
+    public void setNombre_especialidad(String nombre_especialidad) {
+        this.nombre_especialidad = nombre_especialidad;
     }
 
     public int getId_centroMedico() {
@@ -66,6 +84,7 @@ public class CentroMedicoDB implements Serializable {
                 ", direccion_centroMedico='" + direccion_centroMedico + '\'' +
                 ", telef_centroMedico='" + telef_centroMedico + '\'' +
                 ", ubic_centroMedico='" + ubic_centroMedico + '\'' +
+                ", nombre_especialidad='" + nombre_especialidad + '\'' +
                 '}';
     }
 }

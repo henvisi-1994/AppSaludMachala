@@ -200,9 +200,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/gothammedium"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
                 android:text="Descripcion"
                 android:textColor="@color/azulparrafos"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
