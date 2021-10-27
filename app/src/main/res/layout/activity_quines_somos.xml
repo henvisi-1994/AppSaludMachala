@@ -99,12 +99,20 @@
             app:srcCompat="@drawable/instagra" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/img_fb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="tw"
             app:srcCompat="@drawable/twitter" />
+
+        <ImageView
+            android:id="@+id/imgtiktok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="tiktok"
+            app:srcCompat="@drawable/tiktok" />
 
     </LinearLayout>
 

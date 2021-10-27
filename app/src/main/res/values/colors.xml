@@ -6,4 +6,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="azultitulo">#2D2E82 </color>
     <color name="azulparrafos">#227296 </color>
+    <color name="botones">#227296 </color>
+
 </resources>

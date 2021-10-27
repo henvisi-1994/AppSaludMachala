@@ -309,7 +309,7 @@
                 tools:ignore="MissingConstraints">
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/img_fb"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -317,7 +317,7 @@
                     app:srcCompat="@drawable/fb" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/img_ig"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -325,7 +325,7 @@
                     app:srcCompat="@drawable/instagra" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/img_tw"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -333,11 +333,11 @@
                     app:srcCompat="@drawable/twitter" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imgtiktok"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="tw"
+                    android:onClick="tiktok"
                     app:srcCompat="@drawable/tiktok" />
             </LinearLayout>
 

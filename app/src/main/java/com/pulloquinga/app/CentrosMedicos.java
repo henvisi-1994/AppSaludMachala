@@ -37,14 +37,7 @@ public class CentrosMedicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_centros_medicos);
         recycler=(RecyclerView) findViewById(R.id.recycler_cm);
-        //recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL,false));
-        //recycler.setLayoutManager(new GridLayoutManager(this,2));
         recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
-
-        //int spanCount = 2; // 3 columns
-        //int spacing = 50; // 50px
-        //boolean includeEdge = false;
-        //recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         InizializaDati();
         AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
         recycler.setAdapter(adapter);
@@ -59,13 +52,10 @@ public class CentrosMedicos extends AppCompatActivity {
 
                 if (response.isSuccessful()){
                     centrosmedicosdb=(Recursos.listToArrayList(response.body()));
-                    //filtrar_especialidades(27);
                     for(int i=0;i<=centrosmedicosdb.size()-1;i++){
                         centrosmedicos.add(new CentroMedico(centrosmedicosdb.get(i).getId_centroMedico(),centrosmedicosdb.get(i).getNombre_centroMedico(),filtrar_especialidades(centrosmedicosdb.get(i).getId_centroMedico()),centrosmedicosdb.get(i).getDireccion_centroMedico(),centrosmedicosdb.get(i).getTelef_centroMedico(),centrosmedicosdb.get(i).getUbic_centroMedico()));
                     }
-                    for(int j=0;j<=centrosmedicos.size()-1;j++){
-                        Log.d("CENTROSMEDICOS",centrosmedicos.get(j).toString());
-                    }
+
                     AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
                     recycler.setAdapter(adapter);
                 }
@@ -104,11 +94,7 @@ public class CentrosMedicos extends AppCompatActivity {
                 especialidades+="■ "+obtenercentrosmedicos.get(i).getNombre_especialidad()+",";
             }
         }
-        Log.d("ID",String.valueOf(id));
-        Log.d("Especialidades",especialidades);
-
         return especialidades;
-
     }
 
     public void inicio(View view){

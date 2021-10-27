@@ -26,6 +26,9 @@ public class QuinesSomos extends AppCompatActivity {
     public void instagram(View view){
         startActivity(Recursos.enlaces("https://www.instagram.com/redsaludmachala/"));
     }
+    public void tiktok(View view){
+        startActivity(Recursos.enlaces("https://vm.tiktok.com/ZM8NwnpXV/"));
+    }
     public void inicio(View view){
         Intent inicio = new Intent(this, MainActivity.class);
         startActivity(inicio);

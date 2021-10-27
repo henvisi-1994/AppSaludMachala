@@ -46,33 +46,10 @@ public class RegistroUsuario extends AppCompatActivity {
     public void Registrar(View view){
         Usuario usuario = new Usuario(name.getText().toString(),email.getText().toString(),password.getText().toString(),telefono.getText().toString(),identificacion.getText().toString(),direccion.getText().toString());
         if(validarEmail()&& ValidarVacio()&&validarIdentificacion()){
-            Call<RespuestaServer> call = servicio.registro(usuario);
-            call.enqueue(new Callback<RespuestaServer>() {
-                @Override
-                public void onResponse(Call<RespuestaServer> call, Response<RespuestaServer> response) {
-                    try{
-                        String respuesta = response.message();
-                        switch (respuesta){
-                            case "OK":
-                                ingresar();
-                                break;
-                            case "Bad Request":
-                                email.setError("Email Repetido");
-                                break;
-                        }
+            Intent tc = new Intent(this, TerminosCondiciones.class);
+            tc.putExtra("usuario",usuario);
+            startActivity(tc);
 
-
-                    }catch (Exception e){
-                        Log.d("Error",e.toString());
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<RespuestaServer> call, Throwable t) {
-                    Log.d("Error al registrar",call.toString());
-
-                }
-            });
         }else{
             Toast.makeText(getApplicationContext(), "Datos Incorrectos", Toast.LENGTH_LONG).show();
         }
@@ -90,10 +67,7 @@ public class RegistroUsuario extends AppCompatActivity {
         return esValido;
     }
 
-    public void ingresar() {
-        Intent loguin = new Intent(this, LoginActivity.class);
-        startActivity(loguin);
-    }
+
     public void validar(){
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -190,5 +164,6 @@ public class RegistroUsuario extends AppCompatActivity {
         }
         return esValido;
     }
+
 
 }

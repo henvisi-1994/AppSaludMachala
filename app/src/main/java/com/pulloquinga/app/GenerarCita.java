@@ -99,6 +99,7 @@ public class GenerarCita extends AppCompatActivity {
             }
         }
                 ,ano,mes,dia);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
     }
 

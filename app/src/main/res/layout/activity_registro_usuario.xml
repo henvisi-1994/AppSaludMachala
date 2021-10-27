@@ -289,16 +289,16 @@
 
     <Button
         android:id="@+id/btnRegistro"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/botones"
         android:onClick="Registrar"
         android:text="Registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Menu"

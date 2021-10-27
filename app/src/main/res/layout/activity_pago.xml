@@ -290,6 +290,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:backgroundTint="@color/botones"
         android:onClick="pagar"
         android:text="PAGAR"
         app:layout_constraintEnd_toEndOf="parent"
