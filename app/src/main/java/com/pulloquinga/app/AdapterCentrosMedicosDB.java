@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pulloquinga.app.models.CentroMedico;
 import com.pulloquinga.app.models.CentroMedicoDB;
 
 import java.util.ArrayList;

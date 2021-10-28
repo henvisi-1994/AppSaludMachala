@@ -17,12 +17,14 @@ import com.pulloquinga.app.interfaces.ApiService;
 import com.pulloquinga.app.models.Card;
 import com.pulloquinga.app.models.Cita;
 import com.pulloquinga.app.models.Email;
+import com.pulloquinga.app.models.EmailComprobante;
 import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.OUC;
 import com.pulloquinga.app.models.Order;
 import com.pulloquinga.app.models.RequestOUC;
 import com.pulloquinga.app.models.RequireEmail;
+import com.pulloquinga.app.models.RequireEmailComprobante;
 import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.models.User;
@@ -128,6 +130,7 @@ TextView txt_precio;
                 Log.d("PAGOO",response.body().getTransaction().getMessage());
                 generar_cita();
                 enviar_email();
+                enviar_comprobante(response.body().getTransaction().getAmount(),response.body().getTransaction().getId());
             }
             @Override
             public void onFailure(Call<RequestOUC> call, Throwable t) {
@@ -154,6 +157,37 @@ TextView txt_precio;
 
                 @Override
                 public void onFailure(Call<RequireEmail> call, Throwable t) {
+                    Log.d("Errorrrrr",t.toString());
+                }
+            });
+        }
+        catch (Exception e){
+            Log.d("Error Guardar",e.toString());
+
+        }
+    }
+    public void enviar_comprobante(double precio,String identificacion){
+        try{
+            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
+            String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            String user = prefs.getString("user", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            String dni = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            //Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
+            EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, medico.getNombre_medico(), dni, user, identificacion,  precio);
+            Call<RequireEmailComprobante> call = servicio.enviar_comprobante(token,email);
+            call.enqueue(new Callback<RequireEmailComprobante>() {
+                @Override
+                public void onResponse(Call<RequireEmailComprobante> call, Response<RequireEmailComprobante> response) {
+                    try{
+                        Log.d("EMAIL",response.body().toString());
+                    }catch(Exception e){
+                        Log.d("Errorrrrr",e.toString());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<RequireEmailComprobante> call, Throwable t) {
                     Log.d("Errorrrrr",t.toString());
                 }
             });

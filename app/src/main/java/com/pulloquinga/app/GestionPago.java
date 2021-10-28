@@ -120,48 +120,5 @@ public class GestionPago extends AppCompatActivity {
         Intent detalle = new Intent(this, AgregarTarjeta.class);
         this.startActivity(detalle);
     }
-    /*public void guardar(View view) {
-        try{
-            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
-            String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-            String user = prefs.getString("user", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-            Cita cita=new Cita(medico.getId_especialidad(),  horario.getId_horario(),  medico.getId_medico(),  user);
-            Call<Cita> call = servicio.registro_cita(token,cita);
-            call.enqueue(new Callback<Cita>() {
-                @Override
-                public void onResponse(Call<Cita> call, Response<Cita> response) {
-                    Toast.makeText(getApplicationContext(), "Se ha creado la cita exitosamente ", Toast.LENGTH_LONG).show();
-                    borrar_horario();
-                }
 
-                @Override
-                public void onFailure(Call<Cita> call, Throwable t) {
-                Log.d("Errorrrrr",t.toString());
-                }
-            });
-
-        }
-        catch (Exception e){
-            Log.d("Error Guardar",e.toString());
-
-        }
-
-    }*/
-    public void borrar_horario(){
-        SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
-        String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-        Log.d("HORARIOGESTIONPAGO",String.valueOf(horario.getId_horario()));
-        Call<RespuestaServer> call = servicio.eliminar_horario(token,horario.getId_horario());
-        call.enqueue(new Callback<RespuestaServer>() {
-            @Override
-            public void onResponse(Call<RespuestaServer> call, Response<RespuestaServer> response) {
-            }
-
-            @Override
-            public void onFailure(Call<RespuestaServer> call, Throwable t) {
-                Log.d("Error al eliminar",call.toString());
-
-            }
-        });
-    }
 }

@@ -41,7 +41,7 @@ public class AdapterEspecialidadesDB extends RecyclerView.Adapter<AdapterEspecia
 
     @Override
     public AdapterEspecialidadesDB.ViewHolderDatos onCreateViewHolder( ViewGroup parent, int i) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_centros_medicos,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_especialidades,null,false);
         context=view.getContext();
 
         return new AdapterEspecialidadesDB.ViewHolderDatos(view);
@@ -74,7 +74,7 @@ public class AdapterEspecialidadesDB extends RecyclerView.Adapter<AdapterEspecia
         TextView detalle_centro_medico;
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            detalle_centro_medico=(TextView) itemView.findViewById(R.id.txvnombrecm);
+            detalle_centro_medico=(TextView) itemView.findViewById(R.id.txvnombreespe);
         }
         public void asignarDatos(DetalleCentroMedico dato) {
             detalle_centro_medico.setText(dato.getNombre_especialidad());

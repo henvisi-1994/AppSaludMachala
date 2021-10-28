@@ -67,7 +67,7 @@ public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHo
             titulo.setText(dato.getTitulo_noticia());
             Picasso.get()
                     .load(dato.getImagen_noticia())
-                    .resize(30, 30)
+                    //.resize(30, 30)
                     .error(R.mipmap.ic_launcher_round)
                     .into(imagen);
             txvfecha.setText(cadenaFecha[0]);

@@ -107,7 +107,6 @@ public class AdapterCards extends RecyclerView.Adapter<AdapterCards.ViewHolderDa
             }
             Picasso.get()
                     .load(url_imagen)
-                    .resize(30, 30)
                     .error(R.mipmap.ic_launcher_round)
                     .into(imagen);
         }

@@ -26,8 +26,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lista_especialidades_db"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="600sp"
         android:scrollbarDefaultDelayBeforeFade="350"
         android:scrollbarSize="4dp"
         app:layout_constraintBottom_toBottomOf="parent"

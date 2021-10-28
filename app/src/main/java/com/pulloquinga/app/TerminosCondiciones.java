@@ -53,8 +53,6 @@ Usuario usuario;
                                 Toast.makeText(v.getContext(), "Email Repetido", Toast.LENGTH_LONG).show();
                                 break;
                         }
-
-
                     }catch (Exception e){
                         Log.d("Error",e.toString());
                     }

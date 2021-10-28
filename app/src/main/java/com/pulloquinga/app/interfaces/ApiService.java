@@ -9,9 +9,10 @@ import com.pulloquinga.app.models.Horario;
 import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.Noticia;
 import com.pulloquinga.app.models.OUC;
-import com.pulloquinga.app.models.RequestCita;
 import com.pulloquinga.app.models.RequestOUC;
 import com.pulloquinga.app.models.RequireEmail;
+import com.pulloquinga.app.models.EmailComprobante;
+import com.pulloquinga.app.models.RequireEmailComprobante;
 import com.pulloquinga.app.models.RespuestaLoguin;
 import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.Card;
@@ -27,7 +28,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("noticias")
@@ -62,4 +62,6 @@ public interface ApiService {
     Call<RequestOUC> generar_pago(@Header("Auth-Token") String content_type, @Body OUC ouc);
     @POST("email_cita")
     Call<RequireEmail> enviar_email(@Header("Authorization") String content_type, @Body Email email);
+    @POST("email_comprobante")
+    Call<RequireEmailComprobante> enviar_comprobante(@Header("Authorization") String content_type, @Body EmailComprobante email);
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,8 +41,10 @@ public class AgregarTarjeta extends AppCompatActivity {
             cardToSave.setExpiryYear(Integer.parseInt(parts[1]));
             cardToSave.setCVC(editTextcvc.getText().toString());
             //Card cardToSave=cw.getCard();
-
-            Paymentez.addCard(this, "0701115677", "henvisi1994@gmail.com", cardToSave, new TokenCallback() {
+            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
+            String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            String dni = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            Paymentez.addCard(this, dni, email_user, cardToSave, new TokenCallback() {
 
                 public void onSuccess(Card card) {
 
