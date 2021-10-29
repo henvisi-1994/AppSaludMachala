@@ -29,6 +29,9 @@ import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.models.User;
 
+import java.time.Instant;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +50,7 @@ TextView txt_ci,txt_nomb,txt_email,txt_desc,txt_nrefer;
 String smail,spassword;
 TextView txt_precio;
     Context context;
+    Date fecha_actual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,10 @@ TextView txt_precio;
         double amount=medico.getValor();
         String description="Reserva de cita médica a través de Red de Salud con el Doctor "+medico.getNombre_medico()
                 +" en la especialidad de "+medico.getNombre_especialidad()+" en el centro medico "+medico.getNombre_centroMedico();
-        String dev_reference="C-001";
+        fecha_actual=new Date();
+        long unixTime = fecha_actual.getTime() / 1000L;
+        String dev_reference="C-"+String.valueOf(unixTime);
+        Log.d("CODIGO",dev_reference);
         smail="reservas.ap@saludmachala.gob.ec";
                 spassword="AppSalud2021**";
         double tax_percentage=0.0;
@@ -174,7 +181,8 @@ TextView txt_precio;
             String dni = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             //Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
-            EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, medico.getNombre_medico(), dni, user, identificacion,  precio);
+            EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, horario.getHora(),medico.getNombre_centroMedico(),horario.getFecha(), medico.getNombre_medico(), dni, user, identificacion,  precio);
+            Log.d("EMAIL",email.toString());
             Call<RequireEmailComprobante> call = servicio.enviar_comprobante(token,email);
             call.enqueue(new Callback<RequireEmailComprobante>() {
                 @Override

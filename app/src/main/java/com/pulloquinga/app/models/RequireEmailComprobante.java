@@ -30,6 +30,16 @@ public class RequireEmailComprobante {
     @SerializedName("precio")
     @Expose
     private Integer precio;
+    @SerializedName("auxhora")
+    @Expose
+    private String auxhora;
+    @SerializedName("nomb_centMedico")
+    @Expose
+    private String nomb_centMedico;
+    @SerializedName("auxFecha")
+    @Expose
+    private String auxFecha;
+
 
     public RequireEmailComprobante() {
     }
@@ -43,6 +53,44 @@ public class RequireEmailComprobante {
         this.identificacion = identificacion;
         this.numComprobante = numComprobante;
         this.precio = precio;
+    }
+
+    public RequireEmailComprobante(String email, String username, String especialidad, String nombMedico, String fecha, String identificacion, String numComprobante, Integer precio, String auxhora, String nomb_centMedico, String auxFecha) {
+        this.email = email;
+        this.username = username;
+        this.especialidad = especialidad;
+        this.nombMedico = nombMedico;
+        this.fecha = fecha;
+        this.identificacion = identificacion;
+        this.numComprobante = numComprobante;
+        this.precio = precio;
+        this.auxhora = auxhora;
+        this.nomb_centMedico = nomb_centMedico;
+        this.auxFecha = auxFecha;
+    }
+
+    public String getAuxhora() {
+        return auxhora;
+    }
+
+    public void setAuxhora(String auxhora) {
+        this.auxhora = auxhora;
+    }
+
+    public String getNomb_centMedico() {
+        return nomb_centMedico;
+    }
+
+    public void setNomb_centMedico(String nomb_centMedico) {
+        this.nomb_centMedico = nomb_centMedico;
+    }
+
+    public String getAuxFecha() {
+        return auxFecha;
+    }
+
+    public void setAuxFecha(String auxFecha) {
+        this.auxFecha = auxFecha;
     }
 
     public String getEmail() {
@@ -120,6 +168,9 @@ public class RequireEmailComprobante {
                 ", identificacion='" + identificacion + '\'' +
                 ", numComprobante='" + numComprobante + '\'' +
                 ", precio=" + precio +
+                ", auxhora='" + auxhora + '\'' +
+                ", nomb_centMedico='" + nomb_centMedico + '\'' +
+                ", auxFecha='" + auxFecha + '\'' +
                 '}';
     }
 }

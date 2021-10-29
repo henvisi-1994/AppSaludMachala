@@ -15,6 +15,15 @@ public class EmailComprobante {
     @SerializedName("nombre_medico")
     @Expose
     private String nombreMedico;
+    @SerializedName("hora")
+    @Expose
+    private String hora;
+    @SerializedName("centroMedico")
+    @Expose
+    private String centroMedico;
+    @SerializedName("fecha_cita")
+    @Expose
+    private String fecha_cita;
     @SerializedName("identificacion")
     @Expose
     private String identificacion;
@@ -31,14 +40,41 @@ public class EmailComprobante {
     public EmailComprobante() {
     }
 
-    public EmailComprobante(String nombreEspecialidad, String email, String nombreMedico, String identificacion, String nombUsuario, String id, Double amount) {
+    public EmailComprobante(String nombreEspecialidad, String email, String hora, String centroMedico, String fecha_cita, String nombreMedico, String identificacion, String nombUsuario, String id, Double amount) {
         this.nombreEspecialidad = nombreEspecialidad;
         this.email = email;
+        this.hora = hora;
+        this.centroMedico = centroMedico;
+        this.fecha_cita = fecha_cita;
         this.nombreMedico = nombreMedico;
         this.identificacion = identificacion;
         this.nombUsuario = nombUsuario;
         this.id = id;
         this.amount = amount;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getCentroMedico() {
+        return centroMedico;
+    }
+
+    public void setCentroMedico(String centroMedico) {
+        this.centroMedico = centroMedico;
+    }
+
+    public String getFecha_cita() {
+        return fecha_cita;
+    }
+
+    public void setFecha_cita(String fecha_cita) {
+        this.fecha_cita = fecha_cita;
     }
 
     public String getNombreEspecialidad() {
@@ -102,6 +138,9 @@ public class EmailComprobante {
         return "EmailComprobante{" +
                 "nombreEspecialidad='" + nombreEspecialidad + '\'' +
                 ", email='" + email + '\'' +
+                ", hora='" + hora + '\'' +
+                ", centroMedico='" + centroMedico + '\'' +
+                ", fecha_cita='" + fecha_cita + '\'' +
                 ", nombreMedico='" + nombreMedico + '\'' +
                 ", identificacion='" + identificacion + '\'' +
                 ", nombUsuario='" + nombUsuario + '\'' +
