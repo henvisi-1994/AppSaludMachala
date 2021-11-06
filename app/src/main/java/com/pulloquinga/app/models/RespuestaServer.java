@@ -1,12 +1,17 @@
-package com.pulloquinga.app.models;
 
+        package com.pulloquinga.app.models;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+public class RespuestaServer {
 
-public class RespuestaServer implements Serializable {
     @SerializedName("mensaje")
-    String mensaje;
+    @Expose
+    private String mensaje;
+
+    public RespuestaServer() {
+    }
 
     public RespuestaServer(String mensaje) {
         this.mensaje = mensaje;

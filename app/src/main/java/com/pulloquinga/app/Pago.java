@@ -213,7 +213,8 @@ TextView txt_precio;
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
             String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             String user = prefs.getString("user", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-            Cita cita=new Cita(medico.getId_especialidad(),  horario.getId_horario(),  medico.getId_medico(),  user);
+            int id_usuario= prefs.getInt("usuario_id", 0); // prefs.getString("nombre del campo" , "valor por defecto")
+            Cita cita=new Cita(id_usuario,medico.getId_especialidad(),  horario.getId_horario(),  medico.getId_medico(),  user);
             Call<Cita> call = servicio.registro_cita(token,cita);
             call.enqueue(new Callback<Cita>() {
                 @Override

@@ -8,6 +8,11 @@ public class RespuestaLoguin implements Serializable {
       String user;
         String email;
         String identificacion;
+    String telefono;
+    String direccion;
+    String clave;
+    int id;
+
 
     public RespuestaLoguin() {
 
@@ -25,6 +30,61 @@ public class RespuestaLoguin implements Serializable {
         this.user = user;
         this.email = email;
         this.identificacion = identificacion;
+    }
+
+    public RespuestaLoguin(String access_token, String token_type, String user, String email, String identificacion, String telefono, String direccion, String clave) {
+        this.access_token = access_token;
+        this.token_type = token_type;
+        this.user = user;
+        this.email = email;
+        this.identificacion = identificacion;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.clave = clave;
+    }
+
+    public RespuestaLoguin(String access_token, String token_type, String user, String email, String identificacion, String telefono, String direccion, String clave, int id) {
+        this.access_token = access_token;
+        this.token_type = token_type;
+        this.user = user;
+        this.email = email;
+        this.identificacion = identificacion;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.clave = clave;
+        this.id = id;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getEmail() {
@@ -75,6 +135,9 @@ public class RespuestaLoguin implements Serializable {
                 ", user='" + user + '\'' +
                 ", email='" + email + '\'' +
                 ", identificacion='" + identificacion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", clave='" + clave + '\'' +
                 '}';
     }
 }

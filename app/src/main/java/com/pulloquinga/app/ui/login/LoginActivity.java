@@ -30,6 +30,7 @@ import com.pulloquinga.app.CitasPrincipal;
 import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.R;
 import com.pulloquinga.app.RegistroUsuario;
+import com.pulloquinga.app.SubmenuCita;
 import com.pulloquinga.app.databinding.ActivityLoginBinding;
 import com.pulloquinga.app.interfaces.ApiService;
 import com.pulloquinga.app.models.RespuestaLoguin;
@@ -160,6 +161,10 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("user", response.body().getUser());
                             editor.putString("email", response.body().getEmail());
                             editor.putString("identificacion", response.body().getIdentificacion());
+                            editor.putString("telefono", response.body().getTelefono());
+                            editor.putString("direccion", response.body().getDireccion());
+                            editor.putString("clave", response.body().getClave());
+                            editor.putInt("usuario_id", response.body().getId());
                             Log.d("TOKEN",response.body().getAccess_token());
                             editor.commit();
 
@@ -186,8 +191,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void ingresar() {
-        Intent citas_principal = new Intent(this, CitasPrincipal.class);
-        startActivity(citas_principal);
+        Intent submenu_citas = new Intent(this, SubmenuCita.class);
+        startActivity(submenu_citas);
     }
     public  void Registro(View view){
         Intent registro = new Intent(this, RegistroUsuario.class);

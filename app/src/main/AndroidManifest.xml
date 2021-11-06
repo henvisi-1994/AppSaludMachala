@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TerminosCondiciones"></activity>
+        <activity android:name=".PerfilUsuario"></activity>
+        <activity android:name=".SubmenuCita" />
+        <activity android:name=".TerminosCondiciones" />
         <activity android:name=".Pago" />
         <activity android:name=".AgregarTarjeta" />
         <activity android:name=".RegistroUsuario" />

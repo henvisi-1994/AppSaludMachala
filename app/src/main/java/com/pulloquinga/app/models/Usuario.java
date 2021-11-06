@@ -17,6 +17,10 @@ public class Usuario implements Serializable {
     String identificacion;
     @SerializedName("direccion")
     String direccion;
+    @SerializedName("id")
+    int id;
+    @SerializedName("clave")
+    String clave;
 
     public Usuario(String name, String email, String password, String telefono, String identificacion, String direccion) {
         this.name = name;
@@ -25,6 +29,35 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.identificacion = identificacion;
         this.direccion = direccion;
+    }
+
+    public Usuario(String name, String email, String password, String telefono, String identificacion, String direccion, int id) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.telefono = telefono;
+        this.identificacion = identificacion;
+        this.direccion = direccion;
+        this.id = id;
+    }
+
+    public Usuario(String name, String email, String password, String telefono, String identificacion, String direccion, int id, String clave) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.telefono = telefono;
+        this.identificacion = identificacion;
+        this.direccion = direccion;
+        this.id = id;
+        this.clave = clave;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getName() {
@@ -54,6 +87,14 @@ public class Usuario implements Serializable {
     public Usuario(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTelefono() {
