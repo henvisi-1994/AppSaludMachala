@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
     android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".Ambulancia">
 
     <TextView
@@ -19,7 +22,7 @@
         android:text="ATENCIÓN PREHOSPITALARIA"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -7,6 +7,9 @@
     android:background="@drawable/fondogeneral"
     android:onClick="contacto"
     android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".QuinesSomos">
 
     <ImageView
@@ -29,10 +32,11 @@
         android:text="¿QUÍENES SOMOS?"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextQuienesSomos"
@@ -136,7 +140,7 @@
         android:id="@+id/textView12"
         android:layout_width="373dp"
         android:layout_height="27dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/gothammedium"
         android:text="www.saludmachala.gob.ec"
         android:textAlignment="center"
@@ -151,12 +155,12 @@
         android:id="@+id/textView14"
         android:layout_width="281dp"
         android:layout_height="31dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/gothambold"
         android:text="CONTACTANOS"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
@@ -166,7 +170,7 @@
         android:id="@+id/textView20"
         android:layout_width="258dp"
         android:layout_height="28dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
         android:text="Telf. 072963775"
         android:textAlignment="center"
@@ -182,7 +186,7 @@
         android:id="@+id/textView21"
         android:layout_width="351dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/gothammedium"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
@@ -200,7 +204,7 @@
         android:id="@+id/textView22"
         android:layout_width="363dp"
         android:layout_height="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/gothammedium"
         android:text="rsmmep@saludmachala.gob.ec"
         android:textAlignment="center"
@@ -215,10 +219,10 @@
         android:id="@+id/ll"
         android:layout_width="0dp"
         android:layout_height="60dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:paddingBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22">
 
@@ -236,6 +240,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/logodariomacas" />
     </LinearLayout>
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Menu"
@@ -245,9 +250,8 @@
         android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll"
-        app:layout_constraintVertical_bias="0.993"></fragment>
+        app:layout_constraintVertical_bias="0.976"></fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

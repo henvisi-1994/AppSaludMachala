@@ -7,18 +7,19 @@
     android:background="@drawable/fondogeneral"
     android:paddingLeft="10sp"
     android:paddingRight="10sp"
+    android:paddingBottom="5dp"
     tools:context=".PerfilUsuario">
 
     <TextView
         android:id="@+id/textView50"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/gothambold"
         android:text="PERFIL DE USUARIO"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="18sp"
+        android:textSize="@dimen/titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

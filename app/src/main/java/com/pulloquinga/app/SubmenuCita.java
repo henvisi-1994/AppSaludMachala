@@ -19,8 +19,8 @@ public class SubmenuCita extends AppCompatActivity {
 
     }
     public void historial_cita(View view){
-        Intent cetroMedico = new Intent(this, CentrosMedicos.class);
-        startActivity(cetroMedico);
+        Intent hc = new Intent(this, HistorialCitas.class);
+        startActivity(hc);
 
     }
     public void perfil_usuario(View view){

@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".ComprobarCita">
 
     <TextView
@@ -16,7 +19,7 @@
         android:text="Cita"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -266,8 +269,8 @@
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/gothambold"
                 android:text="Valor"
                 android:textColor="@color/azultitulo"

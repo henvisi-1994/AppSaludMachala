@@ -6,21 +6,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
     android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".ClinicasMoviles">
 
     <TextView
         android:id="@+id/especialidad"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/gothambold"
         android:text="CLÍNICAS MÓVILES"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextdescripcionclinica"
@@ -217,6 +221,7 @@
             app:srcCompat="@drawable/logodariomacas" />
 
     </LinearLayout>
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Menu"

@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
 
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".RegistroUsuario">
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/gothambold"
         android:text="Registro de Usuario"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

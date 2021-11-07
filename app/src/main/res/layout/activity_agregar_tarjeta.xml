@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
     tools:context=".AgregarTarjeta">
 
     <EditText
@@ -26,14 +29,13 @@
         android:id="@+id/textView40"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/gothambold"
         android:text="AGREGAR TARJETA"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
-        android:textSize="18sp"
+        android:textSize="@dimen/titulos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,8 +61,8 @@
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/editTextnumcard"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <EditText
             android:id="@+id/editTextfechacad"
