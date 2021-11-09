@@ -13,10 +13,12 @@ import com.pulloquinga.app.models.RequestOUC;
 import com.pulloquinga.app.models.RequireEmail;
 import com.pulloquinga.app.models.EmailComprobante;
 import com.pulloquinga.app.models.RequireEmailComprobante;
+import com.pulloquinga.app.models.RespuestaDeleteCard;
 import com.pulloquinga.app.models.RespuestaHistorial;
 import com.pulloquinga.app.models.RespuestaLoguin;
 import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.Card;
+import com.pulloquinga.app.models.SolicitudDeleteCard;
 import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.models.Usuario;
 
@@ -70,4 +72,6 @@ public interface ApiService {
     Call<RespuestaServer> update_usuario(@Header("Authorization") String content_type, @Body Usuario usuario);
     @GET("historial/{id}")
     Call<List<RespuestaHistorial>> obtener_historial(@Header("Authorization") String content_type,@Path("id")int id);
+    @POST("delete")
+    Call<RespuestaDeleteCard> borrar_tarjeta(@Header("Auth-Token") String content_type, @Body SolicitudDeleteCard solicituddc);
 }

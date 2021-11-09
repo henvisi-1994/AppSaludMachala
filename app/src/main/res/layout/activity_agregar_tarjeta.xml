@@ -46,7 +46,8 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Numero de Tarjeta"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:maxLength="19"
         android:text=""
         android:textColor="@color/azulparrafos"
         android:textColorHint="@color/azulparrafos"
@@ -83,7 +84,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="CVC"
-            android:inputType="textPersonName"
+            android:inputType="number"
+            android:maxLength="4"
             android:text=""
             android:textColor="@color/azulparrafos"
             android:textColorHint="@color/azulparrafos" />
@@ -91,12 +93,26 @@
 
     <Button
         android:id="@+id/btn_guardartarjeta"
-        android:layout_width="0dp"
+        android:layout_width="401dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:backgroundTint="@color/botones"
         android:onClick="guardar"
         android:text="GUARDAR"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView19"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout19" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
+        app:srcCompat="@drawable/logo_paymentez_black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

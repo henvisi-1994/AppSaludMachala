@@ -28,8 +28,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_noticias"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="20dp"
         android:paddingLeft="25sp"
         android:paddingRight="25sp"
         app:layout_constraintEnd_toEndOf="parent"

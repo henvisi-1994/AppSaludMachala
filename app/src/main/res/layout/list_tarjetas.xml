@@ -49,4 +49,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_unknown" />
 
+    <Button
+        android:id="@+id/btn_deletcard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:backgroundTint="@color/botones"
+        android:text="ELIMINAR TARJETA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout20" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.paymentez.android.Paymentez;
 import com.paymentez.android.view.CardMultilineWidget;
+import com.pulloquinga.app.models.User;
+import com.pulloquinga.app.models.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,30 +53,6 @@ public class GestionPago extends AppCompatActivity {
             medico = (Medico) getIntent().getSerializableExtra("medico");
             horario = (Horario) getIntent().getSerializableExtra("horario");
             token = getIntent().getStringExtra("token");
-
-        /*Card tarjeta=new Card();
-        tarjeta.setNumber("4111111111111111");
-        tarjeta.setHolderName("RevolutionTech");
-        tarjeta.setExpiryMonth(01);
-        tarjeta.setExpiryYear(23);
-        tarjeta.setCVC("634");*/
-            /**
-             * Init library
-             *number: número de tarjeta como una cadena sin separadores, por ejemplo, '4242424242424242'.
-             * holderName: nombre del titular de la tarjeta.
-             * expMonth: número entero que representa el mes de vencimiento de la tarjeta, por ejemplo, 12.
-             * expYear: número entero que representa el año de vencimiento de la tarjeta, por ejemplo, 2013.
-             * cvc: código de seguridad de la tarjeta como una cadena, por ejemplo, '123'.
-             * escribe:
-             * @param test_mode false to use production environment
-             * @param paymentez_client_app_code provided by Paymentez.
-             * @param paymentez_client_app_key provided by Paymentez.
-             */
-            boolean test_mode=true;
-            String paymentez_client_app_code="TPP3-EC";
-            String paymentez_client_app_key="ZfapAKOk4QFXheRNvndVib9XU3szzg";
-            //Paymentez.setEnvironment(test_mode, "AbiColApp",paymentez_client_app_key );
-            Paymentez.setEnvironment(test_mode, paymentez_client_app_code,paymentez_client_app_key );
             recycler=(RecyclerView) findViewById(R.id.list_tarjetas);
             recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
             InizializaDati();
@@ -91,6 +69,8 @@ public class GestionPago extends AppCompatActivity {
         try{
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
             String identificacion = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            String email = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+            User usuario=new User(identificacion,email);
             Log.d("IDENTIFICACION",identificacion);
             Call<List<Card>> listCall=servicio.obtener_tarjeta(identificacion);
         listCall.enqueue(new Callback<List<Card>>() {
@@ -98,7 +78,7 @@ public class GestionPago extends AppCompatActivity {
             public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
                 if (response.isSuccessful()){
                     tarjetas=(Recursos.listToArrayList(response.body()));
-                    AdapterCards adapter=new AdapterCards(tarjetas,medico,horario);
+                    AdapterCards adapter=new AdapterCards(tarjetas,medico,horario,usuario);
                     recycler.setAdapter(adapter);
                 }
             }
