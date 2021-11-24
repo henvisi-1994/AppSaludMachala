@@ -19,6 +19,14 @@ public class CentroMedico implements Serializable {
         this.ubicacion = ubicacion;
     }
 
+    public CentroMedico(int id, String nombre, String direccion, String telefono, String ubicacion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.ubicacion = ubicacion;
+    }
+
     public int getId() {
         return id;
     }

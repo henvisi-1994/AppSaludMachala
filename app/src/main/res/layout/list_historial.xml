@@ -8,6 +8,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingRight="5sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,6 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="25sp"
+            android:paddingRight="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
@@ -124,13 +127,42 @@
                     android:text="TextView"
                     android:textColor="@color/azulparrafos" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gothambold"
+                    android:text="Hora:"
+                    android:textColor="@color/azultitulo" />
+
+                <TextView
+                    android:id="@+id/txt_hora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gothammedium"
+                    android:paddingLeft="5sp"
+                    android:text="TextView"
+                    android:textColor="@color/azulparrafos" />
+            </LinearLayout>
         </LinearLayout>
+
 
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:paddingLeft="25dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

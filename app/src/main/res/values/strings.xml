@@ -33,7 +33,7 @@ uno a tres días de acuerdo a la necesidad.</string>
     </string-array>
     <string name="token"></string>
     <string name="no_data_available">No Existen Horarios Disponibles.</string>
-    <string name="redsalud" tools:ignore="StringEscaping">@RedSaludMachala</string>
+    <string name="redsalud" tools:ignore="StringEscaping">@SaludMachala</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

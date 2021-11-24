@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HistorialCitas"></activity>
+        <activity android:name=".CalificacionApp"></activity>
+        <activity android:name=".HistorialCitas" />
         <activity android:name=".PerfilUsuario" />
         <activity android:name=".SubmenuCita" />
         <activity android:name=".TerminosCondiciones" />

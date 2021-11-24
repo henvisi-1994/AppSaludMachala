@@ -1,7 +1,9 @@
 package com.pulloquinga.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -26,6 +28,8 @@ public class list_especialidades_db extends AppCompatActivity {
     private ApiService servicio = Config.getRetrofit().create(ApiService.class);
     ArrayList<DetalleCentroMedico> detalle_centros_medicos = new ArrayList();
     RecyclerView recycler;
+    ArrayList<Especialidad> especialidades = new ArrayList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,30 +51,50 @@ public class list_especialidades_db extends AppCompatActivity {
         //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
         //try{
         Call<List<DetalleCentroMedico>> listCall;
+        Call<List<Especialidad>> listCallaux;
+
         int id_centromedico = getIntent().getIntExtra("id_centromedico",0);
         Log.d("IdCENTROOOMEDICOOO",String.valueOf(id_centromedico));
         if(id_centromedico!=0){
             listCall = servicio.getDetalleCentroMedico();
-        }else{
-            listCall = servicio.getEspecialidades();
-        }
-        listCall.enqueue(new Callback<List<DetalleCentroMedico>>() {
-            @Override
-            public void onResponse(Call<List<DetalleCentroMedico>> call, Response<List<DetalleCentroMedico>> response) {
-                if (response.isSuccessful()) {
-                    detalle_centros_medicos = (Recursos.listToArrayList(response.body()));
-                    String tipo_medico = getIntent().getStringExtra("tipo_medico");
-                    Log.d("CentroMedico", String.valueOf(id_centromedico));
-                    AdapterEspecialidadesDB adapter = new AdapterEspecialidadesDB(detalle_centros_medicos,id_centromedico,tipo_medico);
-                    recycler.setAdapter(adapter);
+            listCall.enqueue(new Callback<List<DetalleCentroMedico>>() {
+                @Override
+                public void onResponse(Call<List<DetalleCentroMedico>> call, Response<List<DetalleCentroMedico>> response) {
+                    if (response.isSuccessful()) {
+                        detalle_centros_medicos = (Recursos.listToArrayList(response.body()));
+                        String tipo_medico = getIntent().getStringExtra("tipo_medico");
+                        Log.d("CentroMedico", String.valueOf(id_centromedico));
+                        AdapterEspecialidadesDB adapter = new AdapterEspecialidadesDB(detalle_centros_medicos,id_centromedico,tipo_medico);
+                        recycler.setAdapter(adapter);
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<List<DetalleCentroMedico>> call, Throwable t) {
+                @Override
+                public void onFailure(Call<List<DetalleCentroMedico>> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }else{
+            listCallaux = servicio.getEspecialidadMedProd();
+            listCallaux.enqueue(new Callback<List<Especialidad>>() {
+                @Override
+                public void onResponse(Call<List<Especialidad>> call, Response<List<Especialidad>> response) {
+                    if (response.isSuccessful()) {
+                        especialidades = (Recursos.listToArrayList(response.body()));
+                        String tipo_medico = getIntent().getStringExtra("tipo_medico");
+                        Log.d("CentroMedico", String.valueOf(id_centromedico));
+                        AdapterEspecialidadesMP adapter = new AdapterEspecialidadesMP(especialidades,tipo_medico);
+                        recycler.setAdapter(adapter);
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<Especialidad>> call, Throwable t) {
+
+                }
+            });
+        }
+
 
     }
+
 }

@@ -1,5 +1,7 @@
 package com.pulloquinga.app.interfaces;
 
+import com.pulloquinga.app.CalificacionApp;
+import com.pulloquinga.app.models.CalificacionAppModel;
 import com.pulloquinga.app.models.CentroMedicoDB;
 import com.pulloquinga.app.models.Cita;
 import com.pulloquinga.app.models.DetalleCentroMedico;
@@ -10,6 +12,7 @@ import com.pulloquinga.app.models.Medico;
 import com.pulloquinga.app.models.Noticia;
 import com.pulloquinga.app.models.OUC;
 import com.pulloquinga.app.models.RequestOUC;
+import com.pulloquinga.app.models.RequireCalificacion;
 import com.pulloquinga.app.models.RequireEmail;
 import com.pulloquinga.app.models.EmailComprobante;
 import com.pulloquinga.app.models.RequireEmailComprobante;
@@ -40,6 +43,8 @@ public interface ApiService {
     Call<List<CentroMedicoDB>> getCentrosMedicos();
     @GET("especialidades")
     Call<List<Especialidad>> getEspecialidad();
+    @GET("especialidades_med_prod")
+    Call<List<Especialidad>> getEspecialidadMedProd();
     @GET("especialidades")
     Call<List<DetalleCentroMedico>> getEspecialidades();
     @GET("medicos")
@@ -74,4 +79,6 @@ public interface ApiService {
     Call<List<RespuestaHistorial>> obtener_historial(@Header("Authorization") String content_type,@Path("id")int id);
     @POST("delete")
     Call<RespuestaDeleteCard> borrar_tarjeta(@Header("Auth-Token") String content_type, @Body SolicitudDeleteCard solicituddc);
+    @POST("calificacion_app")
+    Call<RequireCalificacion> calificar_app(@Header("Authorization") String content_type, @Body CalificacionAppModel calapp);
 }

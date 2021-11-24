@@ -14,7 +14,7 @@
         android:id="@+id/textViewlist_edb"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/gothambold"
         android:text="ESPECIALIDADES"
         android:textAlignment="center"
@@ -29,7 +29,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lista_especialidades_db"
         android:layout_width="0dp"
-        android:layout_height="600sp"
+        android:layout_height="500sp"
         android:scrollbarDefaultDelayBeforeFade="350"
         android:scrollbarSize="4dp"
         app:layout_constraintBottom_toBottomOf="parent"

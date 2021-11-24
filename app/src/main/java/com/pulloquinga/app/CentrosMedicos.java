@@ -41,7 +41,7 @@ public class CentrosMedicos extends AppCompatActivity {
         InizializaDati();
         AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
         recycler.setAdapter(adapter);
-        obtener_datosbd();
+        //obtener_datosbd();
     }
     public  void InizializaDati(){
         Log.d("METODOCM","LLegoCM");
@@ -53,7 +53,7 @@ public class CentrosMedicos extends AppCompatActivity {
                 if (response.isSuccessful()){
                     centrosmedicosdb=(Recursos.listToArrayList(response.body()));
                     for(int i=0;i<=centrosmedicosdb.size()-1;i++){
-                        centrosmedicos.add(new CentroMedico(centrosmedicosdb.get(i).getId_centroMedico(),centrosmedicosdb.get(i).getNombre_centroMedico(),filtrar_especialidades(centrosmedicosdb.get(i).getId_centroMedico()),centrosmedicosdb.get(i).getDireccion_centroMedico(),centrosmedicosdb.get(i).getTelef_centroMedico(),centrosmedicosdb.get(i).getUbic_centroMedico()));
+                        centrosmedicos.add(new CentroMedico(centrosmedicosdb.get(i).getId_centroMedico(),centrosmedicosdb.get(i).getNombre_centroMedico(),centrosmedicosdb.get(i).getDireccion_centroMedico(),centrosmedicosdb.get(i).getTelef_centroMedico(),centrosmedicosdb.get(i).getUbic_centroMedico()));
                     }
 
                     AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
@@ -67,34 +67,6 @@ public class CentrosMedicos extends AppCompatActivity {
 
             }
         });
-    }
-    public void obtener_datosbd(){
-        Call<List<DetalleCentroMedico>> listCall=servicio.getDetalleCentroMedico();
-        listCall.enqueue(new Callback<List<DetalleCentroMedico>>() {
-            @Override
-            public void onResponse(Call<List<DetalleCentroMedico>> call, Response<List<DetalleCentroMedico>> response) {
-
-                if (response.isSuccessful()){
-                    obtenercentrosmedicos=(Recursos.listToArrayList(response.body()));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<DetalleCentroMedico>> call, Throwable t) {
-                Log.d("ERROR" ,t.getMessage());
-
-            }
-        });
-    }
-
-    public String filtrar_especialidades(int id){
-        String especialidades="";
-        for(int i=0;i<=obtenercentrosmedicos.size()-1;i++){
-            if(obtenercentrosmedicos.get(i).getId_centroMedico()==id){
-                especialidades+="■ "+obtenercentrosmedicos.get(i).getNombre_especialidad()+",";
-            }
-        }
-        return especialidades;
     }
 
     public void inicio(View view){

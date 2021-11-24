@@ -158,8 +158,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="373dp"
-        android:layout_height="113dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -207,7 +207,7 @@
         android:layout_height="36dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
-        android:text="@string/cuenta"
+        android:text="@string/redsalud"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="20sp"
@@ -221,7 +221,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
-        android:text="www.redsaludmachala.gob.ec"
+        android:text="www.saludmachala.gob.ec"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="20sp"
