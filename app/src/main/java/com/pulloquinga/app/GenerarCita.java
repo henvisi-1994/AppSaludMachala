@@ -78,21 +78,25 @@ public class GenerarCita extends AppCompatActivity {
         dia=c.get(Calendar.DAY_OF_MONTH);
         mes=c.get(Calendar.MONTH);
         ano=c.get(Calendar.YEAR);
-
-
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 int dia=dayOfMonth;
-                String diaactual;
+                int mes=monthOfYear+1;
+                String diaactual,mesactual;
                 if(dia>=10){
                     diaactual=String.valueOf(dayOfMonth);
                 }
                 else{
                     diaactual="0"+String.valueOf(dayOfMonth);
                 }
-                String fecha_filtro=year+"-"+(monthOfYear + 1)+"-"+diaactual;
+                if(mes>=10){
+                    mesactual=String.valueOf(mes);
+                }
+                else{
+                    mesactual="0"+String.valueOf(mes);
+                }
+                String fecha_filtro=year+"-"+(mesactual)+"-"+diaactual;
                 String fecha = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
                 efecha.setText(fecha);
                 Log.d("Formato Fecha",fecha_filtro);

@@ -13,9 +13,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Config {
-    //public static final String BASEURL="http://192.168.0.104/apiredsaludmachala/public/api/";
+    public static final String BASEURL="http://192.168.0.105/apiredsaludmachala/public/api/";
     //public static final String BASEURL="http://192.168.100.2/apiredsaludmachala/public/api/";
-    public static final String BASEURL="https://apiapp.saludmachala.gob.ec/api/";
+    //public static final String BASEURL="https://apiapp.saludmachala.gob.ec/api/";
 
 
     public static Retrofit retrofit;
