@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/gothambold"
-                android:text="N. Referencia:"
+                android:text="Cod. Autorizacion:"
                 android:textColor="@color/azultitulo"
                 android:textSize="18sp" />
 
@@ -239,6 +239,41 @@
                 android:textColor="@color/azulparrafos"
                 android:textSize="18sp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/referencia">
+
+            <TextView
+                android:id="@+id/textView64"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/gothambold"
+                android:text="CVC:"
+                android:textColor="@color/azultitulo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/cvc_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/gothammedium"
+                android:hint="Ingrese CVC"
+                android:inputType="textPersonName"
+                android:textColor="@color/azulparrafos"
+                android:textColorHint="@color/azulparrafos" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -289,12 +324,11 @@
         android:id="@+id/btn_pagar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/botones"
         android:onClick="pagar"
         android:text="PAGAR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 

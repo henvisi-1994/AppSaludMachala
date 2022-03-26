@@ -33,6 +33,9 @@ public class EmailComprobante {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("autorizacion")
+    @Expose
+    private String autorizacion;
     @SerializedName("amount")
     @Expose
     private Double amount;
@@ -40,7 +43,7 @@ public class EmailComprobante {
     public EmailComprobante() {
     }
 
-    public EmailComprobante(String nombreEspecialidad, String email, String hora, String centroMedico, String fecha_cita, String nombreMedico, String identificacion, String nombUsuario, String id, Double amount) {
+    public EmailComprobante(String nombreEspecialidad, String email, String hora, String centroMedico, String fecha_cita, String nombreMedico, String identificacion, String nombUsuario, String id, Double amount,String autorizacion) {
         this.nombreEspecialidad = nombreEspecialidad;
         this.email = email;
         this.hora = hora;
@@ -51,6 +54,7 @@ public class EmailComprobante {
         this.nombUsuario = nombUsuario;
         this.id = id;
         this.amount = amount;
+        this.autorizacion=autorizacion;
     }
 
     public String getHora() {
@@ -133,18 +137,27 @@ public class EmailComprobante {
         this.amount = amount;
     }
 
+    public String getAutorizacion() {
+        return autorizacion;
+    }
+
+    public void setAutorizacion(String autorizacion) {
+        this.autorizacion = autorizacion;
+    }
+
     @Override
     public String toString() {
         return "EmailComprobante{" +
                 "nombreEspecialidad='" + nombreEspecialidad + '\'' +
                 ", email='" + email + '\'' +
+                ", nombreMedico='" + nombreMedico + '\'' +
                 ", hora='" + hora + '\'' +
                 ", centroMedico='" + centroMedico + '\'' +
                 ", fecha_cita='" + fecha_cita + '\'' +
-                ", nombreMedico='" + nombreMedico + '\'' +
                 ", identificacion='" + identificacion + '\'' +
                 ", nombUsuario='" + nombUsuario + '\'' +
                 ", id='" + id + '\'' +
+                ", autorizacion='" + autorizacion + '\'' +
                 ", amount=" + amount +
                 '}';
     }

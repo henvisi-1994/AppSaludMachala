@@ -36,6 +36,9 @@ public class Card implements Serializable {
     @SerializedName("number")
     @Expose
     private String number;
+    @SerializedName("cvc")
+    @Expose
+    private String cvc;
 
 
     public String getBin() {
@@ -94,6 +97,14 @@ public class Card implements Serializable {
         this.transactionReference = transactionReference;
     }
 
+    public String getCvc() {
+        return cvc;
+    }
+
+    public void setCvc(String cvc) {
+        this.cvc = cvc;
+    }
+
     public String getType() {
         return type;
     }
@@ -122,6 +133,7 @@ public class Card implements Serializable {
                 ", transactionReference='" + transactionReference + '\'' +
                 ", type='" + type + '\'' +
                 ", number='" + number + '\'' +
+                ", cvc='" + cvc + '\'' +
                 '}';
     }
 }

@@ -2,12 +2,14 @@ package com.pulloquinga.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +49,7 @@ public OUC ouc;
 public Medico medico;
 public Horario horario;
 TextView txt_ci,txt_nomb,txt_email,txt_desc,txt_nrefer;
+EditText cvc_text;
 String smail,spassword;
 TextView txt_precio;
     Context context;
@@ -78,7 +81,7 @@ TextView txt_precio;
         double taxable_amount=amount;
         double vat=0.0;
         order=new Order(amount,tax_percentage,taxable_amount,description,dev_reference,vat);
-        ouc=new OUC(user,order,card);
+        cvc_text=(EditText) findViewById(R.id.cvc_text);
         txt_nomb=(TextView)findViewById(R.id.txt_nomb);
         txt_ci=(TextView)findViewById(R.id.txt_ci);
         txt_email=(TextView)findViewById(R.id.txt_email);
@@ -91,9 +94,6 @@ TextView txt_precio;
         txt_desc.setText(order.getDescription());
         txt_nrefer.setText(order.getDev_reference());
         txt_precio.setText("$"+String.valueOf(order.getAmount()));
-
-
-
     }
     public void pagar(View view){
         context=view.getContext();
@@ -128,22 +128,30 @@ TextView txt_precio;
             }
         });
     }
+    @SuppressLint("WrongConstant")
     public void realizar_pago(String token){
+        card.setCvc(cvc_text.getText().toString());
+        if(!card.getCvc().equals("")){
+            ouc=new OUC(user,order,card);
         Call<RequestOUC> call = servicio_pago.generar_pago(token,ouc);
         call.enqueue(new Callback<RequestOUC>() {
             @Override
             public void onResponse(Call<RequestOUC> call, Response<RequestOUC> response) {
                 Toast.makeText(getApplicationContext(), response.body().getTransaction().getMessage(), Toast.LENGTH_LONG).show();
-                Log.d("PAGOO",response.body().getTransaction().getMessage());
                 generar_cita();
                 enviar_email();
-                enviar_comprobante(response.body().getTransaction().getAmount(),response.body().getTransaction().getId());
+                enviar_comprobante(response.body().getTransaction().getAmount(),response.body().getTransaction().getId(),response.body().getTransaction().getAuthorizationCode());
             }
             @Override
             public void onFailure(Call<RequestOUC> call, Throwable t) {
                 Log.d("Errorrrrr",t.toString());
             }
         });
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Ingrese CVC",5000).show();
+        }
+
     }
     public void enviar_email(){
         try{
@@ -173,7 +181,7 @@ TextView txt_precio;
 
         }
     }
-    public void enviar_comprobante(double precio,String identificacion){
+    public void enviar_comprobante(double precio,String identificacion,String autorizacion){
         try{
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
             String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
@@ -181,14 +189,14 @@ TextView txt_precio;
             String dni = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             //Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
-            EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, horario.getHora(),medico.getNombre_centroMedico(),horario.getFecha(), medico.getNombre_medico(), dni, user, identificacion,  precio);
+            EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, horario.getHora(),medico.getNombre_centroMedico(),horario.getFecha(), medico.getNombre_medico(), dni, user, identificacion,  precio,autorizacion);
             Log.d("EMAIL",email.toString());
             Call<RequireEmailComprobante> call = servicio.enviar_comprobante(token,email);
             call.enqueue(new Callback<RequireEmailComprobante>() {
                 @Override
                 public void onResponse(Call<RequireEmailComprobante> call, Response<RequireEmailComprobante> response) {
                     try{
-                        Log.d("EMAIL",response.body().toString());
+                        Toast.makeText(getApplicationContext(), "Se ha generado comprobante de pago, revise su correo electronico", Toast.LENGTH_LONG).show();
                     }catch(Exception e){
                         Log.d("Errorrrrr",e.toString());
                     }
