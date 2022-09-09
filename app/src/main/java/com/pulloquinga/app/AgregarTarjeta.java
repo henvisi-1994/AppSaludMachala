@@ -49,9 +49,9 @@ public class AgregarTarjeta extends AppCompatActivity {
          * @param paymentez_client_app_code provided by Paymentez.
          * @param paymentez_client_app_key provided by Paymentez.
          */
-        boolean test_mode=true;
-        String paymentez_client_app_code="TPP3-EC-CLIENT";
-        String paymentez_client_app_key="ZfapAKOk4QFXheRNvndVib9XU3szzg";
+        boolean test_mode=false;
+        String paymentez_client_app_code="MUNICSALUDMACH-EC-CLIENT";
+        String paymentez_client_app_key="Sa4XpeXVn8eHem2OntmdGGLDIpaloL";
         //Paymentez.setEnvironment(test_mode, "AbiColApp",paymentez_client_app_key );
         Paymentez.setEnvironment(test_mode, paymentez_client_app_code,paymentez_client_app_key );
 
@@ -59,20 +59,12 @@ public class AgregarTarjeta extends AppCompatActivity {
     public void guardar(View view){
         try {
             String[] parts = editTextfechacad.getText().toString().split("/");
-            Card cardToSave=new Card();
-            //cardToSave.setNumber("4111111111111111");
-            cardToSave.setNumber(editTextnumcard.getText().toString());
-
-            cardToSave.setHolderName(editTextnombtitu.getText().toString());
-            cardToSave.setExpiryMonth(Integer.parseInt(parts[0]));
-            cardToSave.setExpiryYear(Integer.parseInt(parts[1]));
-            cardToSave.setCVC(editTextcvc.getText().toString());
+            //cardToSave.setHolderName(editTextnombtitu.getText().toString());
             //Card cardToSave=cw.getCard();
             SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
-            String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
-            String dni = prefs.getString("identificacion", ""); // prefs.getString("nombre del campo" , "valor por defecto")
+
             if(validacion()){
-                Paymentez.addCard(this, dni, email_user, cardToSave, new TokenCallback() {
+                Paymentez.addCard(this, prefs.getString("identificacion", ""), prefs.getString("email", ""), new Card(editTextnumcard.getText().toString(),Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),editTextcvc.getText().toString(),editTextnombtitu.getText().toString()), new TokenCallback() {
 
                     public void onSuccess(Card card) {
 
@@ -84,6 +76,7 @@ public class AgregarTarjeta extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Card Successfully Added"+"status: " + card.getStatus() + "\n" +
                                         "Card Token: " + card.getToken() + "\n" +
                                         "transaction_reference: " + card.getTransactionReference(), Toast.LENGTH_LONG).show();
+
                                 Intent detalle = new Intent(view.getContext(), GestionPago.class);
                                 view.getContext().startActivity(detalle);
                             } else if (card.getStatus().equals("review")) {
@@ -128,6 +121,8 @@ public class AgregarTarjeta extends AppCompatActivity {
 
     }
     public boolean validacion() {
+        long tInicio = System.currentTimeMillis();
+
         boolean correcto = false;
 
         try {
@@ -142,11 +137,13 @@ public class AgregarTarjeta extends AppCompatActivity {
             //Si la fecha no es correcta, pasará por aquí
             correcto = false;
             Toast.makeText(getApplicationContext(), "INCORRECTO" ,Toast.LENGTH_LONG).show() ;
-
-
         }
-
+        long tFinal = System.currentTimeMillis();
+        long tDiferencia = tFinal - tInicio;
+        double segundosTranscurridos = tDiferencia/1000.0;
+        Log.d("TIEMPO ESPERA",segundosTranscurridos+"S");
         return correcto;
+
     }
 
 }

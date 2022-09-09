@@ -21,6 +21,7 @@ import com.pulloquinga.app.models.RespuestaHistorial;
 import com.pulloquinga.app.models.RespuestaLoguin;
 import com.pulloquinga.app.models.RespuestaServer;
 import com.pulloquinga.app.models.Card;
+import com.pulloquinga.app.models.RespuestaServerValidacion;
 import com.pulloquinga.app.models.SolicitudDeleteCard;
 import com.pulloquinga.app.models.TokenPago;
 import com.pulloquinga.app.models.Usuario;
@@ -57,6 +58,8 @@ public interface ApiService {
     Call<RespuestaLoguin> loggearse(@Body Usuario usuario);
     @POST("usuario")
     Call<RespuestaServer> registro(@Body Usuario usuario);
+    @POST("verificar_registro")
+    Call<RespuestaServerValidacion> verificar_registro(@Body Usuario usuario);
     @POST("citas")
     Call<Cita> registro_cita(@Header("Authorization") String content_type, @Body Cita cita);
     @DELETE("horarios/{id}")

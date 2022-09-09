@@ -2,7 +2,9 @@ package com.pulloquinga.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pulloquinga.app.models.RespuestaServer;
+import com.pulloquinga.app.models.RespuestaServerValidacion;
 import com.pulloquinga.app.models.Usuario;
 import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.interfaces.ApiService;
@@ -45,15 +48,45 @@ public class RegistroUsuario extends AppCompatActivity {
     }
     public void Registrar(View view){
         Usuario usuario = new Usuario(name.getText().toString(),email.getText().toString(),password.getText().toString(),telefono.getText().toString(),identificacion.getText().toString(),direccion.getText().toString());
-        if(validarEmail()&& ValidarVacio()&&validarIdentificacion()){
-            Intent tc = new Intent(this, TerminosCondiciones.class);
-            tc.putExtra("usuario",usuario);
-            startActivity(tc);
+        Log.d("CI",usuario.getIdentificacion());
+        Log.d("EMAIL",usuario.getEmail());
+        Call<RespuestaServerValidacion> call = servicio.verificar_registro(usuario);
+        call.enqueue(new Callback<RespuestaServerValidacion>() {
+            @Override
+            public void onResponse(Call<RespuestaServerValidacion> call, Response<RespuestaServerValidacion> response) {
+                try{
+                    String respuesta = response.message();
+                    Log.d("RESPUESTA",String.valueOf(response.code()));
+                    //Log.d("CONTEO",String.valueOf(response.body().getConteo()));
+                    Log.d("MENSAJE",String.valueOf(response.body()));
 
-        }else{
-            Toast.makeText(getApplicationContext(), "Datos Incorrectos", Toast.LENGTH_LONG).show();
-        }
+                    switch (respuesta){
+                        case "OK":
+                            if(validarEmail()&& ValidarVacio()&&validarIdentificacion()){
+                                Intent tc = new Intent(getApplicationContext(), TerminosCondiciones.class);
+                                tc.putExtra("usuario",usuario);
+                                startActivity(tc);
 
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Datos Incorrectos", Toast.LENGTH_LONG).show();
+                            }
+
+
+                            break;
+                        case "Bad Request":
+                            Toast.makeText(getApplicationContext(), "Email o Cédula ya existen", Toast.LENGTH_LONG).show();
+                            break;
+                    }
+                }catch (Exception e){
+                    Log.d("Error",e.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespuestaServerValidacion> call, Throwable t) {
+                Log.d("Error al registrar",call.toString());
+            }
+        });
     }
     public boolean ValidarVacio(){
         boolean esValido=false;

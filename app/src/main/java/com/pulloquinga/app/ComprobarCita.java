@@ -71,4 +71,7 @@ public class ComprobarCita extends AppCompatActivity {
             Log.d("Error",e.toString());
         }
     }
+    public void regresar(View view){
+        onBackPressed();
+    }
 }

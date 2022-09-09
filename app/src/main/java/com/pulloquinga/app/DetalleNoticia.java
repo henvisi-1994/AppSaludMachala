@@ -30,8 +30,10 @@ public class DetalleNoticia extends AppCompatActivity {
         Noticia noticia = (Noticia) getIntent().getSerializableExtra("noticia");
         txtvtitulonoticia.setText(noticia.getTitulo_noticia());
         editTextdesarrollonoticia.setText(noticia.getDescripcion_noticia());
+        String urlimagen="https://apiapp.saludmachala.gob.ec"+noticia.getImagen_noticia();
         Picasso.get()
-                .load(noticia.getImagen_noticia())
+
+                .load(urlimagen)
                 .error(R.mipmap.ic_launcher_round)
                 .into(imgdetallenoticia);
     }

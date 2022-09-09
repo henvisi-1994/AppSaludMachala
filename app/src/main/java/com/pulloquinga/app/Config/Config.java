@@ -13,8 +13,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Config {
-    //public static final String BASEURL="http://192.168.0.106/apiredsaludmachala/public/api/";
-    //public static final String BASEURL="http://192.168.100.2/apiredsaludmachala/public/api/";
+    //public static final String BASEURL="http://192.168.0.104/apiredsaludmachala/public/api/";
+    //public static final String BASEURL="http://192.168.100.4/apiredsaludmachala/public/api/";
     public static final String BASEURL="https://apiapp.saludmachala.gob.ec/api/";
 
 
@@ -37,7 +37,4 @@ public class Config {
     public static void Mensaje(Context context, String mensaje) {
         Toast.makeText(context, mensaje, Toast.LENGTH_LONG).show();
     }
-
-
-
 }

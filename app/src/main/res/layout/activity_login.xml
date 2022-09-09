@@ -97,15 +97,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
+    <TextView
+        android:id="@+id/txtoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:linksClickable="false"
+        android:onClick="olvide_password"
+        android:text="@string/ovlidopassword"
+        android:textColor="@color/azultitulo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl" />
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Menu"
-        android:layout_width="0dp"
+        android:layout_width="401dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl"
-        app:layout_constraintVertical_bias="0.984"></fragment>
+        app:layout_constraintTop_toBottomOf="@+id/txtoc"
+        app:layout_constraintVertical_bias="0.962"></fragment>
 </androidx.constraintlayout.widget.ConstraintLayout>

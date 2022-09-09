@@ -42,7 +42,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/gothambold"
             android:onClick="contacto"
-            android:text="CONTACTENOS"
+            android:text="CONTÁCTENOS"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

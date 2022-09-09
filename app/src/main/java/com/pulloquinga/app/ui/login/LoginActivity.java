@@ -15,7 +15,10 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 import com.pulloquinga.app.CitasPrincipal;
 import com.pulloquinga.app.Config.Config;
 import com.pulloquinga.app.R;
+import com.pulloquinga.app.Recursos;
 import com.pulloquinga.app.RegistroUsuario;
 import com.pulloquinga.app.SubmenuCita;
 import com.pulloquinga.app.databinding.ActivityLoginBinding;
@@ -51,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
@@ -63,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = binding.loading;
         email = usernameEditText;
         password = passwordEditText;
-
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -139,6 +141,9 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+    }
+    public void olvide_password(View view){
+        startActivity(Recursos.enlaces("https://apiapp.saludmachala.gob.ec/password/reset"));
     }
 
     private void updateUiWithUser(LoggedInUserView model) {

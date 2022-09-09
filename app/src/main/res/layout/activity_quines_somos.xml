@@ -49,7 +49,7 @@
         android:inputType="textMultiLine"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
-        android:text="Una empresa pública municipal, que atravez de los servicios de salud brindamos por medio de los Centros Médicos Municipales y Clínicas Móviles, busca garantizar el cuidado integral en la salud de la ciudadanía a costos solidarios."
+        android:text="Una empresa pública municipal, que a través de los servicios de salud brindamos por medio de los Centros Médicos Municipales y Clínicas Móviles, busca garantizar el cuidado integral en la salud de la ciudadanía a costos solidarios."
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
@@ -157,7 +157,7 @@
         android:layout_height="31dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/gothambold"
-        android:text="CONTACTANOS"
+        android:text="CONTÁCTANOS"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="20sp"
@@ -167,37 +167,21 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="258dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/gothammedium"
-        android:text="Telf. 072963775"
-        android:textAlignment="center"
-        android:textColor="@color/azulparrafos"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:id="@+id/textView21"
         android:layout_width="351dp"
         android:layout_height="49dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
-        android:text="Dir. Av 25 de Junio y Nueve de Mayo, 4to piso del GAD Municipal de Machala"
+        android:text="Dir. Barrio Luz de America, 6ta este y 23 ava A sur esquina.(Antiguo Hospital Oftalmológico)"
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:ignore="MissingConstraints" />
 
     <TextView

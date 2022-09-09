@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Drawable originalDrawable = getResources().getDrawable(R.drawable.ambulanciaicono);
         Bitmap originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
-
+        EditText txt_menu=(EditText)findViewById(R.id.txt_menu);
+        txt_menu.setEnabled(false);
         //creamos el drawable redondeado
         RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), originalBitmap);
 

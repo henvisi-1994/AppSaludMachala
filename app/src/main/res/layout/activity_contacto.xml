@@ -86,34 +86,18 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_nom_medico" />
 
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/gothambold"
-        android:text="(07)2963 775"
-        android:textAlignment="center"
-        android:textColor="@color/azultitulo"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-    <TextView
         android:id="@+id/textView21"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
-        android:text="Av. 25 de Junio y 9 de Mayo"
+        android:text="Barrio Luz de America, 6ta este y 23 ava A sur esquina."
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/textView22"
@@ -121,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
-        android:text="4to Piso GAD Municipal Machala"
+        android:text="(Antiguo Hospital Oftalmológico)"
         android:textAlignment="center"
         android:textColor="@color/azulparrafos"
         android:textSize="18sp"
@@ -136,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/gothammedium"
-        android:text="Siguenos, comenta y comparte"
+        android:text="Síguenos, comenta y comparte"
         android:textAlignment="center"
         android:textColor="@color/azultitulo"
         android:textSize="18sp"

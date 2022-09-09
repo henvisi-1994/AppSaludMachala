@@ -78,7 +78,7 @@ TextView txt_precio;
         smail="reservas.ap@saludmachala.gob.ec";
                 spassword="AppSalud2021**";
         double tax_percentage=0.0;
-        double taxable_amount=amount;
+        double taxable_amount=0.0;
         double vat=0.0;
         order=new Order(amount,tax_percentage,taxable_amount,description,dev_reference,vat);
         cvc_text=(EditText) findViewById(R.id.cvc_text);
@@ -94,6 +94,7 @@ TextView txt_precio;
         txt_desc.setText(order.getDescription());
         txt_nrefer.setText(order.getDev_reference());
         txt_precio.setText("$"+String.valueOf(order.getAmount()));
+
     }
     public void pagar(View view){
         context=view.getContext();
@@ -147,6 +148,7 @@ TextView txt_precio;
                 Log.d("Errorrrrr",t.toString());
             }
         });
+            Log.d("OUC",ouc.toString());
         }
         else{
             Toast.makeText(getApplicationContext(),"Ingrese CVC",5000).show();

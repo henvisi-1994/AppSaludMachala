@@ -3,6 +3,7 @@ package com.pulloquinga.app;
 import android.content.Context;
 import android.content.Intent;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,9 @@ public class AdapterNoticias extends RecyclerView.Adapter<AdapterNoticias.ViewHo
         public void asignarDatos(Noticia dato) {
             String cadenaFecha []=dato.getFecha_inicio_noticia().split(" ",10);
             titulo.setText(dato.getTitulo_noticia());
+            String urlimagen="https://apiapp.saludmachala.gob.ec"+dato.getImagen_noticia();
             Picasso.get()
-                    .load(dato.getImagen_noticia())
+                    .load(urlimagen)
                     //.resize(30, 30)
                     .error(R.mipmap.ic_launcher_round)
                     .into(imagen);

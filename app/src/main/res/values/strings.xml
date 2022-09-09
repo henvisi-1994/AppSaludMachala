@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">App</string>
+    <string name="app_name">Red Salud Machala</string>
     <!-- Strings used for fragments for navigation -->
     <string name="cuenta">"@RedsaludMachala"</string>
 
-    <string name="descripcion_ambulancia">Ponemos a su dispocisión el <b>servicio de ambulancia </b>para
+    <string name="descripcion_ambulancia">Ponemos a su disposición el <b>servicio de ambulancia </b>para
 traslados secundarios, <b>dentro y fuera de la ciudad</b> a bajos costos.</string>
 
     <string name="descripcion_clinicas">Las clínicas móviles <b>recorren </b>los diferentes barrios de la ciudad
@@ -34,6 +34,8 @@ uno a tres días de acuerdo a la necesidad.</string>
     <string name="token"></string>
     <string name="no_data_available">No Existen Horarios Disponibles.</string>
     <string name="redsalud" tools:ignore="StringEscaping">@SaludMachala</string>
+    <string name="ovlidopassword">Olvidó Contraseña?</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

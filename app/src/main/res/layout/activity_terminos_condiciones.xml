@@ -19,13 +19,14 @@
         android:paddingBottom="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </WebView>
 
     <CheckBox
         android:id="@+id/cbaceptar"
-        android:layout_width="0dp"
+        android:layout_width="401dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:buttonTint="@color/azultitulo"
         android:onClick="loguearCheckbox"
         android:text="Aceptar Terminos y Condiciones"
@@ -33,8 +34,16 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/termi_cond"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/termi_cond" />
 </androidx.constraintlayout.widget.ConstraintLayout>
