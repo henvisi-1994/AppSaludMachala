@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,7 +30,7 @@ public class list_especialidades_db extends AppCompatActivity {
     ArrayList<DetalleCentroMedico> detalle_centros_medicos = new ArrayList();
     RecyclerView recycler;
     ArrayList<Especialidad> especialidades = new ArrayList();
-
+    ProgressBar pbe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,13 @@ public class list_especialidades_db extends AppCompatActivity {
        // int spacing = 30; // 50px
         //boolean includeEdge = false;
         //recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        pbe=(ProgressBar)findViewById(R.id.pbe);
+        this.visible(false);
         InizializaDati();
     }
 
     public void InizializaDati() {
+        this.visible(true);
         //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
         //try{
         Call<List<DetalleCentroMedico>> listCall;
@@ -61,6 +65,7 @@ public class list_especialidades_db extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<DetalleCentroMedico>> call, Response<List<DetalleCentroMedico>> response) {
                     if (response.isSuccessful()) {
+                        visible(false);
                         detalle_centros_medicos = (Recursos.listToArrayList(response.body()));
                         String tipo_medico = getIntent().getStringExtra("tipo_medico");
                         Log.d("CentroMedico", String.valueOf(id_centromedico));
@@ -95,6 +100,18 @@ public class list_especialidades_db extends AppCompatActivity {
         }
 
 
+    }
+    public void visible(boolean visibilidad){
+        if (visibilidad) {
+
+            pbe.setVisibility(View.VISIBLE);
+            recycler.setVisibility(View.GONE);
+        }
+        else {
+            pbe.setVisibility(View.GONE);
+            recycler.setVisibility(View.VISIBLE);
+
+        }
     }
 
 }

@@ -85,7 +85,9 @@ ProgressBar pb;
                         switch (respuesta){
                             case "OK":
                                 visible(false);
+                                Toast.makeText(v.getContext(), "Revise su correo, Se ha enviado un correo de verificación", Toast.LENGTH_LONG).show();
                                 ingresar();
+
                                 break;
                             case "Bad Request":
                                 Toast.makeText(v.getContext(), "Email Repetido", Toast.LENGTH_LONG).show();

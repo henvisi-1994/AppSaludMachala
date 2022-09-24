@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -32,18 +33,27 @@ public class CentrosMedicos extends AppCompatActivity {
     ArrayList<DetalleCentroMedico>obtenercentrosmedicos=new ArrayList();
     private ApiService servicio= Config.getRetrofit().create(ApiService.class);
     RecyclerView recycler;
+    ProgressBar pbcm2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_centros_medicos);
+        Log.d("Metodo visibilidad222","Centro medico");
         recycler=(RecyclerView) findViewById(R.id.recycler_cm);
         recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+        pbcm2=(ProgressBar)findViewById(R.id.pbcm2);
+        this.visible(false);
         InizializaDati();
         AdapterCentrosMedicos adapter=new AdapterCentrosMedicos(centrosmedicos);
         recycler.setAdapter(adapter);
         //obtener_datosbd();
+
     }
     public  void InizializaDati(){
+        this.visible(true);
+
         Log.d("METODOCM","LLegoCM");
         Call<List<CentroMedicoDB>> listCall=servicio.getCentrosMedicos();
         listCall.enqueue(new Callback<List<CentroMedicoDB>>() {
@@ -51,6 +61,7 @@ public class CentrosMedicos extends AppCompatActivity {
             public void onResponse(Call<List<CentroMedicoDB>> call, Response<List<CentroMedicoDB>> response) {
 
                 if (response.isSuccessful()){
+                    visible(false);
                     centrosmedicosdb=(Recursos.listToArrayList(response.body()));
                     for(int i=0;i<=centrosmedicosdb.size()-1;i++){
                         centrosmedicos.add(new CentroMedico(centrosmedicosdb.get(i).getId_centroMedico(),centrosmedicosdb.get(i).getNombre_centroMedico(),centrosmedicosdb.get(i).getDireccion_centroMedico(),centrosmedicosdb.get(i).getTelef_centroMedico(),centrosmedicosdb.get(i).getUbic_centroMedico()));
@@ -83,4 +94,17 @@ public class CentrosMedicos extends AppCompatActivity {
         startActivity(contacto);
         finish();
     }
+    public void visible(boolean visibilidad){
+        if (visibilidad) {
+
+            pbcm2.setVisibility(View.VISIBLE);
+            recycler.setVisibility(View.GONE);
+        }
+        else {
+            pbcm2.setVisibility(View.GONE);
+            recycler.setVisibility(View.VISIBLE);
+
+        }
+    }
+
 }

@@ -158,30 +158,33 @@ public class LoginActivity extends AppCompatActivity {
                     switch (respuesta){
                         case "OK":
                             String welcome = getString(R.string.welcome);
-                            Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-                            ingresar();
-                            SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("token", response.body().getAccess_token());
-                            editor.putString("user", response.body().getUser());
-                            editor.putString("email", response.body().getEmail());
-                            editor.putString("identificacion", response.body().getIdentificacion());
-                            editor.putString("telefono", response.body().getTelefono());
-                            editor.putString("direccion", response.body().getDireccion());
-                            editor.putString("clave", response.body().getClave());
-                            editor.putInt("usuario_id", response.body().getId());
-                            Log.d("TOKEN",response.body().getAccess_token());
-                            editor.commit();
-
+                            if(response.body().getEmailVerifiedAt()==null){
+                                Toast.makeText(getApplicationContext(), "Realice la verificación de su Cuenta a través del Correo Electrónico", Toast.LENGTH_LONG).show();
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+                                ingresar();
+                                SharedPreferences prefs = getSharedPreferences("shared_login_data",   Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putString("token", response.body().getAccess_token());
+                                editor.putString("user", response.body().getUser());
+                                editor.putString("email", response.body().getEmail());
+                                editor.putString("identificacion", response.body().getIdentificacion());
+                                editor.putString("telefono", response.body().getTelefono());
+                                editor.putString("direccion", response.body().getDireccion());
+                                editor.putString("clave", response.body().getClave());
+                                editor.putInt("usuario_id", response.body().getId());
+                                Log.d("TOKEN",response.body().getAccess_token());
+                                editor.commit();
+                            }
                             break;
                         case "Unauthorized":
                             Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_LONG).show();
                             break;
                     }
                 }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Realice la verificación de su Cuenta a través del Correo Electrónico", Toast.LENGTH_LONG).show();
                 }
-
             }
 
             @Override

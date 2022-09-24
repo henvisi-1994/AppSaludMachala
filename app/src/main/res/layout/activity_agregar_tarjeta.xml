@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Fecha de Caducidad"
+            android:hint="MM/AA"
             android:inputType="textPersonName"
             android:text=""
             android:textColor="@color/azulparrafos"
@@ -95,16 +95,15 @@
         android:id="@+id/btn_guardartarjeta"
         android:layout_width="401dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
         android:backgroundTint="@color/botones"
         android:onClick="guardar"
         android:text="GUARDAR"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView19"
-        app:layout_constraintVertical_bias="0.085" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView19"
@@ -116,16 +115,26 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
         app:srcCompat="@drawable/logo_paymentez_black" />
 
+    <ProgressBar
+        android:id="@+id/pbaggtarjeta"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="123dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_guardartarjeta" />
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Volver"
-        android:layout_width="0dp"
+        android:layout_width="401dp"
         android:layout_height="51dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_guardartarjeta"
-        app:layout_constraintVertical_bias="1.0"></fragment>
+        app:layout_constraintTop_toBottomOf="@+id/pbaggtarjeta"
+        app:layout_constraintVertical_bias="0.976"></fragment>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -26,6 +27,8 @@ public class ListMedicos extends AppCompatActivity {
     private ApiService servicio = Config.getRetrofit().create(ApiService.class);
     ArrayList<Medico> medicos = new ArrayList();
     RecyclerView recycler;
+    ProgressBar pbm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +40,12 @@ public class ListMedicos extends AppCompatActivity {
         //int spacing = 30; // 50px
         //boolean includeEdge = false;
         //recycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        pbm=(ProgressBar)findViewById(R.id.pbm);
+        this.visible(false);
         InizializaDati();
     }
     public void InizializaDati() {
+        this.visible(true);
         //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
         //try{
         String tipo_medico = getIntent().getStringExtra("tipo_medico");
@@ -47,9 +53,11 @@ public class ListMedicos extends AppCompatActivity {
         switch(tipo_medico){
             case "Medico Fijo":
                 listCall = servicio.getMedico();
+
                 break;
             case "Medico Produccion":
                 listCall = servicio.getMedicoProduccion();
+
                 break;
             default:
                 throw new IllegalStateException("No existe Tipo Medico: " + tipo_medico);
@@ -58,6 +66,7 @@ public class ListMedicos extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Medico>> call, Response<List<Medico>> response) {
                 if (response.isSuccessful()) {
+                    visible(false);
                     medicos = (Recursos.listToArrayList(response.body()));
                     int id_especialidad = getIntent().getIntExtra("id_especialidad",0);
                     int id_centroM = getIntent().getIntExtra("id_centroM",0);
@@ -72,6 +81,18 @@ public class ListMedicos extends AppCompatActivity {
                 Log.d("ERROR" ,t.getMessage());
             }
         });
+    }
+    public void visible(boolean visibilidad){
+        if (visibilidad) {
+
+            pbm.setVisibility(View.VISIBLE);
+            recycler.setVisibility(View.GONE);
+        }
+        else {
+            pbm.setVisibility(View.GONE);
+            recycler.setVisibility(View.VISIBLE);
+
+        }
     }
 
 }

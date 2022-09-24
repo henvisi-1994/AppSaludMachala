@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class GenerarCita extends AppCompatActivity {
     private int dia,mes,ano;
     TextView efecha;
     private TextView emptyView;
+    ProgressBar pbsh;
 
 
     @Override
@@ -53,6 +55,8 @@ public class GenerarCita extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
         recycler.setTextAlignment(RecyclerView.TEXT_ALIGNMENT_CENTER);
         emptyView = (TextView) findViewById(R.id.empty_view);
+        pbsh=(ProgressBar)findViewById(R.id.pbsh);
+        this.visible(false);
         InizializaDati();
     }
     public void filtrar(String fecha) {
@@ -109,6 +113,8 @@ public class GenerarCita extends AppCompatActivity {
     }
 
     private void InizializaDati() {
+        this.visible(true);
+
         //noticias.add(new Noticia(1,"Titulo1","gdfgdfgdfgdf","sfsdfsdfsd"));
         //try{
         Call<List<Horario>> listCall = servicio.getHorarios();
@@ -116,6 +122,8 @@ public class GenerarCita extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
+                visible(false);
+
                 final Calendar c= Calendar.getInstance();
                 int dia = c.get(Calendar.DAY_OF_MONTH);
                 int mes=c.get(Calendar.MONTH)+1;
@@ -164,6 +172,18 @@ public class GenerarCita extends AppCompatActivity {
             }
         });
 
+    }
+    public void visible(boolean visibilidad){
+        if (visibilidad) {
+
+            pbsh.setVisibility(View.VISIBLE);
+            recycler.setVisibility(View.GONE);
+        }
+        else {
+            pbsh.setVisibility(View.GONE);
+            recycler.setVisibility(View.VISIBLE);
+
+        }
     }
 
 }

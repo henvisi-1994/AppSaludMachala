@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ String smail,spassword;
 TextView txt_precio;
     Context context;
     Date fecha_actual;
+    ProgressBar pbpago;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +96,11 @@ TextView txt_precio;
         txt_desc.setText(order.getDescription());
         txt_nrefer.setText(order.getDev_reference());
         txt_precio.setText("$"+String.valueOf(order.getAmount()));
-
+        pbpago=(ProgressBar)findViewById(R.id.pbpago);
+        this.visible(false);
     }
     public void pagar(View view){
+        this.visible(true);
         context=view.getContext();
         Call<TokenPago> listCall = servicio.getTokenPago();
         listCall.enqueue(new Callback<TokenPago>() {
@@ -142,6 +146,8 @@ TextView txt_precio;
                 generar_cita();
                 enviar_email();
                 enviar_comprobante(response.body().getTransaction().getAmount(),response.body().getTransaction().getId(),response.body().getTransaction().getAuthorizationCode());
+                visible(false);
+
             }
             @Override
             public void onFailure(Call<RequestOUC> call, Throwable t) {
@@ -161,12 +167,13 @@ TextView txt_precio;
             String token = "Bearer " + prefs.getString("token", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             String user = prefs.getString("user", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
+            Log.d("Email",email.toString());
             Call<RequireEmail> call = servicio.enviar_email(token,email);
             call.enqueue(new Callback<RequireEmail>() {
                 @Override
                 public void onResponse(Call<RequireEmail> call, Response<RequireEmail> response) {
                     try{
-                        Log.d("EMAIL",response.body().toString());
+                        Log.d("RESPUESTA EMAIL",response.body().toString());
                     }catch(Exception e){
                         Log.d("Errorrrrr",e.toString());
                     }
@@ -192,7 +199,6 @@ TextView txt_precio;
             String email_user = prefs.getString("email", ""); // prefs.getString("nombre del campo" , "valor por defecto")
             //Email email=new Email(medico.getNombre_especialidad(),  medico.getNombre_centroMedico(),  medico.getNombre_medico(),  medico.getId_medico(),  user,medico.getId_centroMedico());
             EmailComprobante email=new EmailComprobante(medico.getNombre_especialidad(), email_user, horario.getHora(),medico.getNombre_centroMedico(),horario.getFecha(), medico.getNombre_medico(), dni, user, identificacion,  precio,autorizacion);
-            Log.d("EMAIL",email.toString());
             Call<RequireEmailComprobante> call = servicio.enviar_comprobante(token,email);
             call.enqueue(new Callback<RequireEmailComprobante>() {
                 @Override
@@ -250,6 +256,14 @@ TextView txt_precio;
         catch (Exception e){
             Log.d("Error Guardar",e.toString());
 
+        }
+    }
+    public void visible(boolean visibilidad){
+        if (visibilidad) {
+            pbpago.setVisibility(View.VISIBLE);
+        }
+        else {
+            pbpago.setVisibility(View.GONE);
         }
     }
 }

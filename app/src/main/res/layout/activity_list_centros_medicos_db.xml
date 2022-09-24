@@ -32,6 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewlist_cmdb" />
+
     <fragment
         android:id="@+id/menu"
         android:name="com.pulloquinga.app.Volver"
@@ -41,9 +42,19 @@
         android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lista_centros_medicos_db"
-        app:layout_constraintVertical_bias="0.993"></fragment>
+        app:layout_constraintTop_toBottomOf="@+id/pbcm"
+        app:layout_constraintVertical_bias="1.0"></fragment>
+
+    <ProgressBar
+        android:id="@+id/pbcm"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="87dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lista_centros_medicos_db" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

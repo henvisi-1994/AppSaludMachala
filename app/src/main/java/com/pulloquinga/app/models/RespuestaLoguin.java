@@ -11,11 +11,20 @@ public class RespuestaLoguin implements Serializable {
     String telefono;
     String direccion;
     String clave;
+    String email_verified_at="";
     int id;
 
 
     public RespuestaLoguin() {
 
+    }
+
+    public String getEmailVerifiedAt() {
+        return email_verified_at;
+    }
+
+    public void setEmailVerifiedAt(String email_verified_at) {
+        this.email_verified_at = email_verified_at;
     }
 
     public RespuestaLoguin(String access_token, String token_type, String user) {
@@ -43,7 +52,7 @@ public class RespuestaLoguin implements Serializable {
         this.clave = clave;
     }
 
-    public RespuestaLoguin(String access_token, String token_type, String user, String email, String identificacion, String telefono, String direccion, String clave, int id) {
+    public RespuestaLoguin(String access_token, String token_type, String user, String email, String identificacion, String telefono, String direccion, String clave, String email_verified_at, int id) {
         this.access_token = access_token;
         this.token_type = token_type;
         this.user = user;
@@ -53,6 +62,7 @@ public class RespuestaLoguin implements Serializable {
         this.direccion = direccion;
         this.clave = clave;
         this.id = id;
+        this.email_verified_at=email_verified_at;
     }
 
     public String getTelefono() {
@@ -127,6 +137,7 @@ public class RespuestaLoguin implements Serializable {
         this.user = user;
     }
 
+
     @Override
     public String toString() {
         return "RespuestaLoguin{" +
@@ -138,6 +149,8 @@ public class RespuestaLoguin implements Serializable {
                 ", telefono='" + telefono + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", clave='" + clave + '\'' +
+                ", email_verified_at='" + email_verified_at + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
